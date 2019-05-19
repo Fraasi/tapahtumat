@@ -3,8 +3,8 @@ const scrapeCheerios = require('./fetch.js')
 const scrapeTwitBook = require('./twitbook.js')
 // const startTime = new Date()
 
-// scrapeCheerios()
-scrapeTwitBook()
+scrapeCheerios()
+// scrapeTwitBook()
 
 // savea täällä kun scrapit on ohim muista muuttaa Nii, et returnaa datan
 
