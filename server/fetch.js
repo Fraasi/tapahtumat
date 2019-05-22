@@ -4,34 +4,36 @@ const cheerio = require('cheerio')
 
 const startTime = new Date()
 
-const cheerioDataToSave = {
-  // kujakolli: [],
-  // vastavirta: [],
-  // hirvitalo: [],
-  mahdollisuuksienTila: []
-}
 const cheerioScrapeInfo = {
   kujakolli: {
-    Url: 'https://www.kujakolli.fi/',
-    Selector: '.showtime h6',
+    name: 'Kujakolli',
+    data: [],
+    url: 'https://www.kujakolli.fi/',
+    selector: '.showtime h6',
   },
   vastavirta: {
-    Url: 'http://vastavirta.net/en/',
-    Selector: '.event',
+    name: 'Vastavirta',
+    data: [],
+    url: 'http://vastavirta.net/en/',
+    selector: '.event',
   },
   hirvitalo: {
-    Url: 'http://www.hirvikatu10.net/wordpress.1/',
-    Selector: '#extras > ul:first-of-type > li'
+    name: 'Hirvitalo',
+    data: [],
+    url: 'http://www.hirvikatu10.net/wordpress.1/',
+    selector: '#extras > ul:first-of-type > li'
   },
   mahdollisuuksienTila: {
-    Url: 'https://www.mahdollisuuksientila.fi/tapahtumat',
-    Selector: 'div[id*="_default"] .flex_vbox'
+    name: 'Mahdollisuuksien tila',
+    data: [],
+    url: 'https://www.mahdollisuuksientila.fi/tapahtumat',
+    selector: 'div[id*="_default"] .flex_vbox'
     // Selector: 'div[id*="_def_"] .flex_display.flex_vbox'
   },
 }
 
 let cheerioCount = 0
-const cheerioCountTo = Object.keys(cheerioDataToSave).length
+const cheerioCountTo = Object.keys(cheerioScrapeInfo).length
 
 
 async function getCheerioEvents(url, selector, pub) {
@@ -118,7 +120,7 @@ async function getCheerioEvents(url, selector, pub) {
       return [`Jotain män ${pub}:ssa piäleen`, err.toString()]
     })
 
-  cheerioDataToSave[pub] = result
+  cheerioScrapeInfo[pub].data = result
   cheerioCount++
   console.log('\x1b[33m', `Cheerio'ed ${pub}, ${cheerioCount}/${cheerioCountTo}`);
   if (cheerioCount === cheerioCountTo) writeDataToFile('Cheerio')
@@ -126,24 +128,18 @@ async function getCheerioEvents(url, selector, pub) {
 
 function writeDataToFile(scraper) {
   console.log('\x1b[33m', "\x1b[45m", `${scraper}Data ready!`, '\x1b[0m')
-
-  fs.writeFileSync('scrapedData.js', 'const twitData = ')
-
-  fs.appendFile('scrapedData.js', '\n\nconst cheerioData = ' + JSON.stringify(cheerioDataToSave, null, 2), (err) => { if (err) throw err })
-
   const stopTime = new Date()
-  const scrapeTime = `${(stopTime - startTime) / 1000} s`
-
-  fs.appendFile('scrapedData.js', `\n\nconst scrapeTime = '${scrapeTime}'`, err => { if (err) throw err })
-
-  console.log('\x1b[33m', "\x1b[41m", 'ScrapeTime: ', scrapeTime, '- opening browser...', '\x1b[0m')
+  const scrapeTime = (stopTime - startTime) / 1000
+  cheerioScrapeInfo.scrapeTime = scrapeTime
+  fs.writeFileSync('scrapedData.js', 'export default ' + JSON.stringify(cheerioScrapeInfo, null, 2), (err) => { if (err) throw err })
+  console.log('\x1b[33m', "\x1b[41m", 'ScrapeTime: ', scrapeTime, '\x1b[0m')
 }
 
 function scrapeCheerios() {
-  Object.keys(cheerioDataToSave)
+  Object.keys(cheerioScrapeInfo)
     .forEach(pub => {
-      const url = cheerioScrapeInfo[pub].Url
-      const selector = cheerioScrapeInfo[pub].Selector
+      const url = cheerioScrapeInfo[pub].url
+      const selector = cheerioScrapeInfo[pub].selector
       getCheerioEvents(url, selector, pub)
     })
 }
