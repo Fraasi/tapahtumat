@@ -36,7 +36,7 @@ const Card = (props) => {
       className={props.classes.root}
     >
       <ListItem button onClick={handleClick} className={props.classes.title}>
-        <ListItemText primary={props.data.name} />
+        <ListItemText primary={`${props.data.name} (${props.data.events.length})`} />
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -46,15 +46,15 @@ const Card = (props) => {
           subheader={
             <ListSubheader disableSticky>
               Tarkemmat tiedot&nbsp;
-              <Link href={props.data.url} target="_blank" rel="noreferrer">
-                {props.data.url}
-              </Link>
+              {/* <Link href={props.data.url} target="_blank" rel="noreferrer"> */}
+                {/* {props.data.url} */}
+              {/* </Link> */}
             </ListSubheader>}
         >
-          {props.data.data.map((el, i) => {
+          {props.data.events.map((el, i) => {
             return (
               <ListItem key={i}>
-                <ListItemText inset primary={el} />
+                <ListItemText inset primary={el || el.event} />
               </ListItem>
             )
           })}

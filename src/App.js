@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import indigo from '@material-ui/core/colors/indigo'
-import blue from '@material-ui/core/colors/blue';
+// import blue from '@material-ui/core/colors/blue';
 // import HUE from '@material-ui/core/colors/HUE'
 import Card from './components/Card'
-import data from './scrapedData.js'
+// import Sdata from './scrapedData.js'
 import './App.css'
-console.log('indigo:', indigo)
+// console.log('indigo:', indigo)
+
+import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
+
+const client = Stitch.initializeDefaultAppClient('tapahtumat-api-lffsa')
+const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('tapahtumat')
 
 const theme = createMuiTheme({
   palette: {
@@ -25,6 +30,26 @@ const theme = createMuiTheme({
 })
 
 function App() {
+
+  const [data, setData] = useState(null)
+  
+  useEffect(() => {
+    
+    client.auth.loginWithCredential(new AnonymousCredential())
+      .then(user => {
+
+        console.log('user:', user)
+       return db.collection('pispala').find({}, {data: 1, _id: 0}).asArray()
+      }
+      ).then(docs => {
+        console.log("Found docs", docs)
+        setData( () => docs[0].data)
+        console.log('data', docs[0].data)
+      }).catch(err => {
+        console.error(err)
+      })
+  }, [])
+
   return (
     <MuiThemeProvider theme={theme}>
       <div className="App">
@@ -32,7 +57,9 @@ function App() {
           Tapahtumat
       </header>
         {
-          Object.keys(data).map(pub => {
+          data === null 
+            ? 'Loading...'
+            : Object.keys(data).map(pub => {
             return (
               <Card key={pub} data={data[pub]} />
             )
