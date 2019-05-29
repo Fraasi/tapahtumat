@@ -10,7 +10,7 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => {
-  console.log('theme:', theme)
+  // console.log('theme:', theme)
   return {
     root: {
       width: '100%',
@@ -24,19 +24,22 @@ const styles = theme => {
 }
 
 const Card = (props) => {
+  // console.log('props:', props)
   const [isOpen, toggleIsOpen] = useState(false)
 
   const handleClick = () => {
     toggleIsOpen(!isOpen)
   }
 
+  const { name, url, events } = props.data
+  const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
   return (
     <List
       component="div"
       className={props.classes.root}
     >
       <ListItem button onClick={handleClick} className={props.classes.title}>
-        <ListItemText primary={`${props.data.name} (${props.data.events.length})`} />
+        <ListItemText primary={`${cleanedName} (${events.length})`} />
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
@@ -46,15 +49,15 @@ const Card = (props) => {
           subheader={
             <ListSubheader disableSticky>
               Tarkemmat tiedot&nbsp;
-              {/* <Link href={props.data.url} target="_blank" rel="noreferrer"> */}
-                {/* {props.data.url} */}
-              {/* </Link> */}
+              <Link href={url} target="_blank" rel="noreferrer">
+                {url}
+               </Link>
             </ListSubheader>}
         >
-          {props.data.events.map((el, i) => {
+          {events.map((event, i) => {
             return (
               <ListItem key={i}>
-                <ListItemText inset primary={el || el.event} />
+                <ListItemText inset primary={`${event.startingDateTime} - ${event.event}`} />
               </ListItem>
             )
           })}

@@ -37,8 +37,6 @@ function App() {
     
     client.auth.loginWithCredential(new AnonymousCredential())
       .then(user => {
-
-        console.log('user:', user)
        return db.collection('pispala').find({}, {data: 1, _id: 0}).asArray()
       }
       ).then(docs => {
@@ -59,9 +57,9 @@ function App() {
         {
           data === null 
             ? 'Loading...'
-            : Object.keys(data).map(pub => {
+            : data.map(pubData => {
             return (
-              <Card key={pub} data={data[pub]} />
+              <Card key={pubData.name} data={pubData} />
             )
           })
         }
