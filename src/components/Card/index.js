@@ -10,16 +10,23 @@ import ExpandMore from '@material-ui/icons/ExpandMore';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => {
-  // console.log('theme:', theme)
+  console.log('theme:', theme)
   return {
     root: {
       width: '100%',
       maxWidth: 360,
-      backgroundColor: theme.palette.background.paper,
     },
-    title: {
-      backgroundColor: 'gray',
+    titleBG: {
+      color: 'white',
+      backgroundColor: 'green',
     },
+    titleText: {
+      color: 'white',
+      fontWeight: 600,
+    },
+    wrapper: {
+      backgroundColor: theme.palette.background.default,
+    }
   }
 }
 
@@ -31,19 +38,27 @@ const Card = (props) => {
     toggleIsOpen(!isOpen)
   }
 
+  const { classes } = props
+  console.log('classes:', classes)
   const { name, url, events } = props.data
   const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
   return (
     <List
       component="div"
-      className={props.classes.root}
+      className={classes.root}
     >
-      <ListItem button onClick={handleClick} className={props.classes.title}>
-        <ListItemText primary={`${cleanedName} (${events.length})`} />
+      <ListItem
+        button onClick={handleClick}
+        className={classes.titleBG}
+        >
+        <ListItemText primary={`${cleanedName} (${events.length})`}
+          disableTypography={true}
+          className={classes.titleText}
+        />
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
 
-      <Collapse in={isOpen} timeout={750} unmountOnExit>
+      <Collapse in={isOpen} timeout={500} unmountOnExit className={classes.wrapper}>
         <List
           component="div"
           subheader={
@@ -52,12 +67,15 @@ const Card = (props) => {
               <Link href={url} target="_blank" rel="noreferrer">
                 {url}
                </Link>
-            </ListSubheader>}
+            </ListSubheader>
+          }
         >
           {events.map((event, i) => {
             return (
               <ListItem key={i}>
-                <ListItemText inset primary={`${event.startingDateTime} - ${event.event}`} />
+                <ListItemText 
+                  primary={`${event.startingDateTime} - ${event.event}`}
+                />
               </ListItem>
             )
           })}

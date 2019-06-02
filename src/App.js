@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import indigo from '@material-ui/core/colors/indigo'
-// import blue from '@material-ui/core/colors/blue';
+import green from '@material-ui/core/colors/green';
 // import HUE from '@material-ui/core/colors/HUE'
 import Card from './components/Card'
 // import Sdata from './scrapedData.js'
@@ -16,17 +16,35 @@ const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').d
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#ff4400',
-      dark: indigo[500]
+      main: indigo[500],
+      // dark: indigo[500]
     },
     secondary: {
-      light: '#0066ff',
-      main: '#0044ff',
-      dark: indigo[100]
+      // light:  indigo[100],
+      main: green[200],
+      // dark: indigo[100]
+    },
+    action: {
+      hover: 'rgba(0, 200, 0, 0.4)',
+      selected: 'rgba(0, 200, 0, 0.5)'
     }
   },
   type: 'dark', // Switching the dark mode on is a single property value change.
-  typography: { useNextVariants: true },
+  typography: { 
+    useNextVariants: true,
+    // body1: {
+    //   color: 'white',
+    //   fontWeight: 600,
+    // }
+  
+  },
+  overrides: {
+    MuiListItemText: { // Name of the component ⚛️ / style sheet
+      text: { // Name of the rule
+        color: 'white', // Some CSS
+      },
+    },
+  },
 })
 
 function App() {
