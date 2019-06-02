@@ -1,10 +1,4 @@
 
-
-.App {
-  text-align: center;
-}
-
-
 .App-header {
   background-color: #282c34;
   min-height: 20vh;
@@ -20,8 +14,12 @@
   background-size: 100% 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.switch {
+  position: absolute;
+  top: 90px;
+  left: 10px;
 }
 
-
+#root > div > div > label > span.lever {
+  margin: 0;
+}
