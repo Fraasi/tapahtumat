@@ -9,7 +9,6 @@ import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-b
 const client = Stitch.initializeDefaultAppClient('tapahtumat-api-lffsa')
 const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('tapahtumat')
 
-
 function App() {
 
   const [data, setData] = useState(null)
@@ -23,8 +22,9 @@ function App() {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
       }
       ).then(docs => {
-        setData(() => docs[0].data)
-        console.log('data', docs[0].data)
+        const returnData = docs[0].data.sort((first, second) => first.name < second.name ? -1 : 1)
+        setData(() => returnData)
+        console.log('data', returnData)
       }).catch(err => {
         console.error('error', err)
         setErrorMsg(() => err)
@@ -45,26 +45,22 @@ function App() {
         onLabel=""
         onChange={onSwitchChange}
       />
-      <header className="App-header">Tapahtumat</header>
+      <header className="App-header">Pispalan Tapahtumat</header>
       {
-        data === null
-          ? (
-            <div>
-              Haetaan aikatauluja...<br />
-              <Preloader size="small" flashing />
-            </div>
-          )
-          : errorMsg !== null
-            ? (<div>errorMsg</div>)
-            : (
-              <Collapsible accordion={false} >
+        errorMsg !== null
+          ? (<div className="error-loader">{errorMsg.toString()}</div>)
+          : data === null
+            ? (<div className="error-loader">
+                Haetaan tapahtumia...<br />
+                <Preloader size="small" flashing />
+              </div>)
+            : (<Collapsible accordion={false} >
                 {
                   data.map((el, i) => {
                     return <Event data={el} key={el.name} expanded={expanded}></Event>
                   })
                 }
-              </Collapsible>
-            )
+              </Collapsible>)
       }
     </div>
   )

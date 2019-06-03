@@ -23,7 +23,10 @@ const About = () => {
         Tämä on pieni yritys koota kaikki samalle sivustolle, jotta olisi helpompi löytää mitä ja missä milloinkin tapahtuu.
       </p>
       <p>
-        fraasi
+        Rajaportin sauna ja pispalan kirjasto työn alla...
+      </p>
+      <p>
+        Jos sivulta löytyy virheitä tai on jotain muuta valitettavaa tai haluat ehdottaa jotain paikkaa listalle, sähköpostia voi lähettää osoitteeseen fraasi.gh@gmail.com
       </p>
     </Modal>
   )

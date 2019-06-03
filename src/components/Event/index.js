@@ -4,11 +4,14 @@ import './event.css'
 
 const Event = (props) => {
 
-  const { name, url, events } = props.data
+  let { name, url, events } = props.data
   const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
 
   // onSelect is not a function error without this
   const onTitleClick = (e) => {}
+
+  if (name === 'vastavirta') events = events.slice(0, 10)
+  if (name === 'dogs_home' || name === 'maanalainen') return null
 
   return (
     <CollapsibleItem
