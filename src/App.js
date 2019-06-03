@@ -51,13 +51,13 @@ function App() {
           ? (<div className="error-loader">{errorMsg.toString()}</div>)
           : data === null
             ? (<div className="error-loader">
-                Haetaan tapahtumia...<br />
+                Haetaan tapahtumia...<br /><br />
                 <Preloader size="small" flashing />
               </div>)
             : (<Collapsible accordion={false} >
                 {
                   data.map((el, i) => {
-                    return <Event data={el} key={el.name} expanded={expanded}></Event>
+                    return <Event data={el} key={el.name}></Event>
                   })
                 }
               </Collapsible>)
