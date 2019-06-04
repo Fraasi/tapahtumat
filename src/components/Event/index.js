@@ -36,7 +36,7 @@ const Event = (props) => {
       header={`${cleanedName} (${events.length})`}
       onSelect={onTitleClick}
     >
-      <span className="sub-header">Tarkemmat tiedot&nbsp;<a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
+      <span className="sub-header">Aukioloaja &<br/>Tarkemmat tiedot<br/><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
       <ul>
         {events.map((event, i) => {
           const date = new Date(event.startTimeStamp)
