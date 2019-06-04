@@ -2,13 +2,7 @@
   "name": "tapahtumat",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "mongodb-stitch-browser-sdk": "^4.4.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-materialize": "^3.3.1",
-    "react-scripts": "3.0.1"
-  },
+  "homepage": ".",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -29,6 +23,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "dependencies": {
+    "mongodb-stitch-browser-sdk": "^4.4.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-materialize": "^3.3.1",
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.3",
