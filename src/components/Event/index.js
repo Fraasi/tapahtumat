@@ -30,7 +30,7 @@ const Event = (props) => {
   if (name === 'dogs_home' || name === 'maanalainen') return null
   if (name === 'vastavirta') events = events.slice(0, 10)
   const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
-  const todayDate = new Date().getDate() + 1
+  const todayDate = new Date().getDate()
   let isThereEventToday = false
 
   const eventRows = events.map((event, i) => {
