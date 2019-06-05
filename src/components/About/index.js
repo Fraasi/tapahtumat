@@ -11,7 +11,7 @@ const About = () => {
       >Sulje</Button>}
       trigger={<Button style={{
         top: '10px',
-        left: '10px',
+        right: '10px',
         position: 'absolute'
         }}
         title="Info"

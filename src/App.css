@@ -1,3 +1,6 @@
+/* @import url('https://fonts.googleapis.com/css?family=Merienda&display=swap'); */
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+/* @import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap'); */
 
 .App-header {
   background-color: #282c34;
@@ -6,8 +9,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(10px + 4vmin);
+  /* font-family: 'Merienda', cursive; */
+  font-family: 'Rock salt', cursive;
+  /* font-family: 'Nanum Pen Script', cursive; */
   color: white;
+  text-shadow:
+  -1px -1px 0 #000,  
+   1px -1px 0 #000,
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
   background-image: url('./assets/IMG_4189.JPG');
   background-position: center;
   background-repeat: no-repeat;
@@ -19,7 +30,7 @@
 .switch {
   position: absolute;
   top: 90px;
-  left: 14px;
+  right: 14px;
   transform: rotate(90deg);
 }
 

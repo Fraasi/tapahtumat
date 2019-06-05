@@ -27,31 +27,40 @@ const Event = (props) => {
     )
   }
 
-  if (name === 'vastavirta') events = events.slice(0, 10)
   if (name === 'dogs_home' || name === 'maanalainen') return null
+  if (name === 'vastavirta') events = events.slice(0, 10)
   const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
+  const todayDate = new Date().getDate() + 1
+  let isThereEventToday = false
+
+  const eventRows = events.map((event, i) => {
+    const date = new Date(event.startTimeStamp)
+    const dateParsed = `${event.preStartTimeStamp || ''}${date.getDate()}.${date.getMonth() + 1}`
+    const eventToday = date.getDate() === todayDate
+    if (eventToday) isThereEventToday = true
+    const todayBGColor = eventToday ? 'rgba(39,169,157,0.7)' : ''
+
+    return (
+      <tr key={i} style={{ backgroundColor: todayBGColor }}>
+        <td>{dateParsed}</td><td>—</td><td>{event.event}</td>
+      </tr>
+    )
+  })
+
 
   return (
     <CollapsibleItem
-      header={`${cleanedName} (${events.length})`}
+      header={`${cleanedName} (${events.length}) ${isThereEventToday ? '!' : ''}`}
       onSelect={onTitleClick}
     >
       <span className="sub-header">Aukioloajat & Tarkemmat tiedot<br /><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
       <table>
         <tbody>
-        {events.map((event, i) => {
-          const date = new Date(event.startTimeStamp)
-          const dateParsed = `${event.preStartTimeStamp || ''}${date.getDate()}.${date.getMonth() + 1}`
-          // const emdash = '—'.padStart(10 - dateParsed.length) //.padEnd(15 - dateParsed.length)
-          return (
-                <tr key={i}>
-                  <td>{dateParsed}</td><td>—</td><td>{event.event}</td>
-                </tr>
-          )
-        }
-        )}
+          {
+            eventRows
+          }
         </tbody>
-              </table>
+      </table>
     </CollapsibleItem>
   )
 }
