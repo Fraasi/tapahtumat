@@ -36,20 +36,22 @@ const Event = (props) => {
       header={`${cleanedName} (${events.length})`}
       onSelect={onTitleClick}
     >
-      <span className="sub-header">Aukioloaja &<br/>Tarkemmat tiedot<br/><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
-      <ul>
+      <span className="sub-header">Aukioloajat & Tarkemmat tiedot<br /><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
+      <table>
+        <tbody>
         {events.map((event, i) => {
           const date = new Date(event.startTimeStamp)
           const dateParsed = `${event.preStartTimeStamp || ''}${date.getDate()}.${date.getMonth() + 1}`
-          const emdash = '—'.padStart(10 - dateParsed.length).padEnd(15 - dateParsed.length)
+          // const emdash = '—'.padStart(10 - dateParsed.length) //.padEnd(15 - dateParsed.length)
           return (
-            <li key={i}>
-              {`${dateParsed} ${emdash} ${event.event}`}
-            </li>
+                <tr key={i}>
+                  <td>{dateParsed}</td><td>—</td><td>{event.event}</td>
+                </tr>
           )
         }
         )}
-      </ul>
+        </tbody>
+              </table>
     </CollapsibleItem>
   )
 }

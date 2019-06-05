@@ -17,3 +17,24 @@
   white-space: pre-wrap;
   font-family: monospace;
 }
+
+/* table {
+  table-layout: auto;
+  width: 100%;
+} */
+
+td {
+  vertical-align: top;
+  padding: 0;
+}
+
+tr {
+  border: none;
+}
+
+td:nth-child(1) {
+  width: 70px;
+}
+td:nth-child(2) {
+  width: 35px;
+}
