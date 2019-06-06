@@ -7,7 +7,7 @@ const Event = (props) => {
   let { name, url, events } = props.data
 
   // onSelect is not a function error without this
-  const onTitleClick = (e) => { }
+  const onTitleClick = () => {}
 
   if (events.error_msg) {
     return (
@@ -33,7 +33,8 @@ const Event = (props) => {
   const todayDate = new Date().getDate()
   let isThereEventToday = false
 
-  const eventRows = events.map((event, i) => {
+  const sortedEvents = events.sort((ev1, ev2) => ev1.startTimeStamp < ev2.startTimeStamp ? -1 : 1)
+  const eventRows = sortedEvents.map((event, i) => {
     const date = new Date(event.startTimeStamp)
     const dateParsed = `${event.preStartTimeStamp || ''}${date.getDate()}.${date.getMonth() + 1}`
     const eventToday = date.getDate() === todayDate
@@ -47,13 +48,12 @@ const Event = (props) => {
     )
   })
 
-
   return (
     <CollapsibleItem
       header={`${cleanedName} (${events.length}) ${isThereEventToday ? '!' : ''}`}
       onSelect={onTitleClick}
     >
-      <span className="sub-header">Aukioloajat & Tarkemmat tiedot<br /><a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
+      <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
       <table>
         <tbody>
           {

@@ -5,7 +5,7 @@ const About = () => {
 
   return (
     <Modal
-      header="Pispalan tapahtumat"
+      header="Pispalan tapahtumista"
       actions={<Button
         waves="green" modal="close"
       >Sulje</Button>}
@@ -21,9 +21,12 @@ const About = () => {
       </p>
       <p>
         Tämä on pieni yritys koota kaikki samalle sivustolle, jotta olisi helpompi löytää mitä ja missä milloinkin tapahtuu.
+        
       </p>
       <p>
-        Rajaportin sauna ja pispalan kirjasto työn alla...
+        Pispalan kirjasto vielä työn alla...<br/>
+        <strong>huom: </strong>
+        Päivämäärien kanssa työskentely on kutakuinkin vaikeaa, joten jotain erheitä on odotettavissa. Korjailen niitä sitä mukaa kun niitä ilmenee ja aika antaa myöden.
       </p>
       <p>
         Jos sivulta löytyy virheitä tai on jotain muuta valitettavaa tai haluat ehdottaa jotain paikkaa listalle, sähköpostia voi lähettää osoitteeseen fraasi.gh@gmail.com
