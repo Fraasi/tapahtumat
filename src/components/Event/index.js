@@ -7,7 +7,7 @@ const Event = (props) => {
   let { name, url, events } = props.data
 
   // onSelect is not a function error without this
-  const onTitleClick = () => {}
+  const onTitleClick = () => { }
 
   if (events.error_msg) {
     return (
@@ -53,7 +53,16 @@ const Event = (props) => {
       header={`${cleanedName} (${events.length}) ${isThereEventToday ? '!' : ''}`}
       onSelect={onTitleClick}
     >
-      <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
+      <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span>
+      {
+        name === 'hirvitalo' &&
+        <>
+          <br />
+          <span className="sub-header">Kansankeittiö lauantaisin <a href="https://www.facebook.com/groups/294496307351291/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/groups/294496307351291/</a></span>
+        </>
+      }
+
+      <br /><br />
       <table>
         <tbody>
           {

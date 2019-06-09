@@ -1,4 +1,7 @@
 lisää:
 kirjasto
-rajaportti
 
+
+g analytics
+icons
+header image

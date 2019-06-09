@@ -13,15 +13,10 @@
 }
 
 .collapsible-body {
-  padding-top: 5px;
+  padding: 5px 20px 20px 20px;
   white-space: pre-wrap;
   font-family: monospace;
 }
-
-/* table {
-  table-layout: auto;
-  width: 100%;
-} */
 
 td {
   vertical-align: top;
