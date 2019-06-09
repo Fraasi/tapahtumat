@@ -45,7 +45,11 @@ function App() {
         onLabel=""
         onChange={onSwitchChange}
       />
-      <header className="App-header">Pispalan Tapahtumat</header>
+      <header className="App-header">
+        <div className="title">
+          Pispalan Tapahtumat
+        </div>
+      </header>
       {
         errorMsg !== null
           ? (<div className="error-loader">{errorMsg.toString()}</div>)

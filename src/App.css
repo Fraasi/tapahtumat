@@ -6,33 +6,38 @@
 /* @import url('https://fonts.googleapis.com/css?family=Merienda&display=swap'); */
 /* @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap'); */
 
-/*EI! @import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap'); */
-
 .App-header {
-  background-color: #282c34;
-  min-height: 20vh;
+  /* has to be flex for about page to work */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 7vmin);
-  letter-spacing: 2px;
-  font-weight: 600;
-  font-family: Annie, cursive;
-  /* font-family: 'Merienda', cursive; */
-  /* font-family: 'Rock salt', cursive; */
-  color: #26A69A;
-  text-shadow:
-  -1px -1px 0 #000,  
-   1px -1px 0 #000,
-   -1px 1px 0 #000,
-    1px 1px 0 #000;
-  background-image: url('./assets/IMG_4189.JPG');
+  background-color: #282c34;
+  min-height: 20vh;
+  background-image: url('./assets/IMG_4189-cr-800.JPG');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin: 0 0 10px 0;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.title {
+  position: absolute;
+  top: 5px;
+  left: 4%;
+  font-size: calc(10px + 6vmin);
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-family: Annie, cursive;
+  /* font-family: 'Merienda', cursive; */
+  /* font-family: 'Rock salt', cursive; */
+  color: rgb(47, 192, 178);
+  text-shadow:
+  -1px -1px 0 #000,  
+   1px -1px 0 #000,
+   -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 button[title="Info"] {
