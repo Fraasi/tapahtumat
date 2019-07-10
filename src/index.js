@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-console.log('process.env.NODE_ENV:', process.env.NODE_ENV)
 if (process.env.NODE_ENV === "production") {
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }

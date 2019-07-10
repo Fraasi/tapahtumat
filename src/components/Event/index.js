@@ -3,8 +3,9 @@ import { CollapsibleItem } from 'react-materialize'
 import './event.css'
 
 const Event = (props) => {
-
+  
   let { name, url, events } = props.data
+  if (name === 'dogs_home' || name === 'maanalainen') return null
 
   // onSelect is not a function error without this
   const onTitleClick = () => { }
@@ -27,7 +28,6 @@ const Event = (props) => {
     )
   }
 
-  if (name === 'dogs_home' || name === 'maanalainen') return null
   if (name === 'vastavirta') events = events.slice(0, 10)
   const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
   const todayDate = new Date().getDate()
@@ -35,9 +35,12 @@ const Event = (props) => {
 
   const sortedEvents = events.sort((ev1, ev2) => ev1.startTimeStamp < ev2.startTimeStamp ? -1 : 1)
   const eventRows = sortedEvents.map((event, i) => {
-    const date = new Date(event.startTimeStamp)
-    const dateParsed = `${event.preStartTimeStamp || ''}${date.getDate()}.${date.getMonth() + 1}`
-    const eventToday = date.getDate() === todayDate
+    const startDate = new Date(event.startTimeStamp)
+    const hasEndDate = event.endTimeStamp != undefined
+    const hasPreStartTimeStamp = event.preStartTimeStamp != undefined
+    const endDate = hasEndDate ? new Date(event.endTimeStamp) : startDate
+    const dateParsed = `${event.preStartTimeStamp || ''}${startDate.getDate()}.${startDate.getMonth() + 1}`
+    const eventToday = startDate.getDate() === todayDate
     if (eventToday) isThereEventToday = true
     const todayBGColor = eventToday ? 'rgba(39,169,157,0.7)' : ''
 

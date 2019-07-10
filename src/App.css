@@ -4,28 +4,33 @@
 }
 
 /* @import url('https://fonts.googleapis.com/css?family=Merienda&display=swap'); */
+
 /* @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap'); */
 
 .App-header {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
   /* has to be flex for about page to work */
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   background-color: #282c34;
   min-height: 20vh;
   background-image: url('./assets/IMG_4189-cr-800.JPG');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin: 0 0 10px 0;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  margin-bottom: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
 .title {
   position: absolute;
-  top: 5px;
-  left: 4%;
+  top: 1vh;
+  left: 3%;
+  margin: 0;
   font-size: calc(10px + 6vmin);
   letter-spacing: 2px;
   font-weight: 600;
@@ -33,26 +38,25 @@
   /* font-family: 'Merienda', cursive; */
   /* font-family: 'Rock salt', cursive; */
   color: rgb(47, 192, 178);
-  text-shadow:
-  -1px -1px 0 #000,  
-   1px -1px 0 #000,
-   -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 button[title="Info"] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   font-size: 25px;
   padding: 0 14px;
 }
 
 .switch {
   position: absolute;
-  top: 90px;
-  right: 10px;
+  top: 85px;
+  right: -5px;
   transform: rotate(90deg);
 }
 
-#root > div > div > label > span.lever {
+#root>div>div>label>span.lever {
   margin: 0;
 }
 

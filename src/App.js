@@ -39,32 +39,32 @@ function App() {
 
   return (
     <div className="App">
-      <About />
-      <Switch
-        offLabel=""
-        onLabel=""
-        onChange={onSwitchChange}
-      />
       <header className="App-header">
-        <div className="title">
+        <h1 className="title">
           Pispalan Tapahtumat
-        </div>
+        </h1>
+        <About />
+        <Switch
+          offLabel=""
+          onLabel=""
+          onChange={onSwitchChange}
+        />
       </header>
       {
         errorMsg !== null
           ? (<div className="error-loader">{errorMsg.toString()}</div>)
           : data === null
             ? (<div className="error-loader">
-                Haetaan tapahtumia...<br /><br />
-                <Preloader size="small" flashing />
-              </div>)
+              Haetaan tapahtumia...<br /><br />
+              <Preloader size="small" flashing />
+            </div>)
             : (<Collapsible accordion={false} >
-                {
-                  data.map((el, i) => {
-                    return <Event data={el} key={el.name}></Event>
-                  })
-                }
-              </Collapsible>)
+              {
+                data.map((el, i) => {
+                  return <Event data={el} key={el.name}></Event>
+                })
+              }
+            </Collapsible>)
       }
     </div>
   )
