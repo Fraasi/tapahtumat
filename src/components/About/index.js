@@ -1,8 +1,8 @@
 import React from 'react'
 import { Modal, Button } from 'react-materialize'
+import './about.css'
 
 const About = () => {
-
   return (
     <Modal
       header="Pispalan tapahtumista"
@@ -22,7 +22,7 @@ const About = () => {
       </p>
       <p>
         <strong>vinkki: </strong>
-        Tämä nettisivu on suunniteltu kännykälle ja toimii parhaiten kun avaa nettisivun luurin selaimessa ja valitsee asetuksista 'Add to home screen', jolloin lähtöruudulle napsahtaa kuvake jota klikkaamalla sivu toimii kuten muutkin 'äpit'.
+        Tämä nettisivu(<a href="https://fraasi.github.io/pispalan-tapahtumat/" target="_blank">https://fraasi.github.io/pispalan-tapahtumat/</a>) on suunniteltu kännykälle ja toimii parhaiten kun avaa nettisivun luurin selaimessa ja valitsee asetuksista 'Add to home screen', jolloin lähtöruudulle napsahtaa kuvake jota klikkaamalla sivu toimii kuten muutkin 'äpit'.
       </p>
       <p>
         <strong>huom: </strong>

@@ -1,0 +1,16 @@
+#modal-0 {
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
+}
+
+#modal-0::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+#modal-0::-webkit-scrollbar:vertical {
+    width: 8px;
+}
+#modal-0::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}

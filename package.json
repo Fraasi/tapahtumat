@@ -27,10 +27,10 @@
     ]
   },
   "dependencies": {
-    "mongodb-stitch-browser-sdk": "^4.4.0",
+    "mongodb-stitch-browser-sdk": "^4.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-materialize": "^3.3.1",
+    "react-materialize": "^3.3.3",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
