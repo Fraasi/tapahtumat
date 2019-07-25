@@ -30,20 +30,29 @@ const Event = (props) => {
 
   if (name === 'vastavirta') events = events.slice(0, 10)
   const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
-  const todayTimeStamp = new Date().getTime()
   const today = new Date()
+  const todayDay = today.getDate()
+  const todayMonth = today.getMonth()
   let isThereEventToday = false
 
-  const sortedEvents = events
+  const filteredPastEvents = events
     .sort((ev1, ev2) => ev1.startTimeStamp < ev2.startTimeStamp ? -1 : 1)
     .filter(event => {
       const { startTimeStamp, endTimeStamp } = event
-      if (endTimeStamp && (endTimeStamp < todayTimeStamp)) return false
-      if (!endTimeStamp && (startTimeStamp < todayTimeStamp)) return false
+      if (endTimeStamp) {
+        const endDate = new Date(endTimeStamp)
+        const endDay = endDate.getDate()
+        const endMonth = endDate.getMonth()
+        return !(endDay < todayDay && endMonth <= todayMonth)
+      } 
+      const startDate = new Date(startTimeStamp)
+      const startDay = startDate.getDate()
+      const startMonth = startDate.getMonth()
+      if (startDay < todayDay && startMonth <= todayMonth) return false
       return true
     })
 
-  const eventRows = sortedEvents.map((event, i) => {
+  const eventRows = filteredPastEvents.map((event, i) => {
     const { startTimeStamp, endTimeStamp, event: happening } = event
     const startDate = new Date(startTimeStamp)
     let endDateParsed = ''
@@ -65,7 +74,7 @@ const Event = (props) => {
 
   return (
     <CollapsibleItem
-      header={`${cleanedName} (${sortedEvents.length}) ${isThereEventToday ? '!' : ''}`}
+      header={`${cleanedName} (${filteredPastEvents.length}) ${isThereEventToday ? '!' : ''}`}
       onSelect={onTitleClick}
     >
       <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span>
