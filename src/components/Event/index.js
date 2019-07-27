@@ -5,7 +5,12 @@ import './event.css'
 const Event = (props) => {
 
   let { name, url, events } = props.data
-  if (name === 'dogs_home' || name === 'maanalainen') return null
+  // skip non pispala venues
+  // TODO: pass 'showOnlyPispalaVenues' state via props here
+  if (true) {
+    const nonPispala = ['dogs_home', 'maanalainen', 'visit_tampere', 'huurupiilo']
+    if (nonPispala.includes(name)) return null
+  }
 
   // onSelect is not a function error without this
   const onTitleClick = () => { }
