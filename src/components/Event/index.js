@@ -5,9 +5,8 @@ import './event.css'
 const Event = (props) => {
 
   let { name, url, events } = props.data
-  // skip non pispala venues
-  // TODO: pass 'showOnlyPispalaVenues' state via props here
-  if (true) {
+    
+  if (props.showOnlyPispalaVenues) {
     const nonPispala = ['dogs_home', 'maanalainen', 'visit_tampere', 'huurupiilo']
     if (nonPispala.includes(name)) return null
   }
@@ -40,7 +39,7 @@ const Event = (props) => {
   const todayMonth = today.getMonth()
   let isThereEventToday = false
 
-  const filteredPastEvents = events
+  const pastEventsFiltered = events
     .sort((ev1, ev2) => ev1.startTimeStamp < ev2.startTimeStamp ? -1 : 1)
     .filter(event => {
       const { startTimeStamp, endTimeStamp } = event
@@ -57,7 +56,7 @@ const Event = (props) => {
       return true
     })
 
-  const eventRows = filteredPastEvents.map((event, i) => {
+  const eventRows = pastEventsFiltered.map((event, i) => {
     const { startTimeStamp, endTimeStamp, event: happening } = event
     const startDate = new Date(startTimeStamp)
     let endDateParsed = ''
@@ -66,7 +65,7 @@ const Event = (props) => {
       endDateParsed = `–${endDate.getDate()}.${endDate.getMonth() + 1}`
     }
     const dateParsed = `${startDate.getDate()}.${startDate.getMonth() + 1}${endDateParsed}`
-    const eventToday = ( (startDate.getDate() === today.getDate()) && (startDate.getMonth() === today.getMonth()) )
+    const eventToday = ( (startDate.getDate() === todayDay) && (startDate.getMonth() === todayMonth) )
     if (eventToday) isThereEventToday = true
     const todayBGColor = eventToday ? 'rgba(39,169,157,0.7)' : ''
 
@@ -79,7 +78,7 @@ const Event = (props) => {
 
   return (
     <CollapsibleItem
-      header={`${cleanedName} (${filteredPastEvents.length}) ${isThereEventToday ? '!' : ''}`}
+      header={`${cleanedName} (${pastEventsFiltered.length}) ${isThereEventToday ? '!' : ''}`}
       onSelect={onTitleClick}
     >
       <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span>

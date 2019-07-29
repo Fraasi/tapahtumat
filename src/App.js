@@ -14,6 +14,7 @@ function App() {
   const [data, setData] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [expanded, setExpanded] = useState(false)
+  const [showOnlyPispalaVenues, setShowOnlyPispalaVenues ] = useState(true)
 
   useEffect(() => {
     document.querySelector('.switch').title = 'Avaa/sulje kaikki'
@@ -37,10 +38,23 @@ function App() {
     else document.querySelector('.collapsible.expandable').M_Collapsible.open()
   }
 
+  let downTimer = null
+
+  const handleMouseDown = () => {
+    clearTimeout(downTimer);
+    downTimer = setTimeout(function() {
+         setShowOnlyPispalaVenues(prevState => !prevState)
+    }, 5000)
+  }
+
+  const handleMouseUp = () => {
+    clearTimeout(downTimer)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title">
+        <h1 className="title" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
           Pispalan Tapahtumat
         </h1>
         <About />
@@ -61,7 +75,7 @@ function App() {
             : (<Collapsible accordion={false} >
               {
                 data.map((el, i) => {
-                  return <Event data={el} key={el.name}></Event>
+                  return <Event data={el} key={el.name} showOnlyPispalaVenues={showOnlyPispalaVenues}></Event>
                 })
               }
             </Collapsible>)
