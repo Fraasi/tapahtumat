@@ -54,7 +54,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
+        <h1 className="title" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} onContextMenu={event => event.preventDefault()}>
           Pispalan Tapahtumat
         </h1>
         <About />

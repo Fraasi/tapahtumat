@@ -5,11 +5,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('./assets/IMG_3106.JPG'); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }  
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: #26a69a;
+  }
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

@@ -1,6 +1,6 @@
 .collapsible.expandable {
   max-width: 600px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 5px auto;
 }
 
 .collapsible-header {
@@ -16,6 +16,7 @@
   padding: 5px 20px 20px 20px;
   white-space: pre-wrap;
   font-family: monospace;
+  background-color: #fff;
 }
 
 td {

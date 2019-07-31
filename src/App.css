@@ -8,14 +8,10 @@
 /* @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap'); */
 
 .App-header {
+  user-select: none;
   position: relative;
   max-width: 600px;
   margin: 0 auto;
-  /* has to be flex for about page to work */
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   background-color: #282c34;
   min-height: 20vh;
   background-image: url('./assets/IMG_4189-cr-800.JPG');
