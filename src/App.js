@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Preloader, Collapsible, Switch } from 'react-materialize'
 import Event from './components/Event'
-import About from './components/About'
-// import Menu from './components/Menu'
 import NavMenu from './components/NavMenu'
 import './App.css'
 
@@ -61,7 +59,6 @@ function App() {
         <h1 className="title" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} onContextMenu={event => event.preventDefault()}>
           Pispalan Tapahtumat
         </h1>
-        <About />
         <Switch
           offLabel=""
           onLabel=""
