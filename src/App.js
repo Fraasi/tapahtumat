@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Preloader, Collapsible, Switch } from 'react-materialize'
 import Event from './components/Event'
 import About from './components/About'
+// import Menu from './components/Menu'
+import NavMenu from './components/NavMenu'
 import './App.css'
 
 import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
@@ -14,6 +16,7 @@ function App() {
   const [data, setData] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [expanded, setExpanded] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
   const [showOnlyPispalaVenues, setShowOnlyPispalaVenues ] = useState(true)
 
   useEffect(() => {
@@ -27,7 +30,7 @@ function App() {
         setData(() => returnData)
         console.log('data', returnData)
       }).catch(err => {
-        console.error('error', err)
+        console.error('Data fetch error:', err)
         setErrorMsg(() => err)
       })
   }, [])
@@ -36,6 +39,7 @@ function App() {
     setExpanded(prev => !prev)
     if (expanded) document.querySelector('.collapsible.expandable').M_Collapsible.close()
     else document.querySelector('.collapsible.expandable').M_Collapsible.open()
+    setMenuOpen(prevState => !prevState)
   }
 
   let downTimer = null
@@ -43,7 +47,7 @@ function App() {
   const handleMouseDown = () => {
     clearTimeout(downTimer);
     downTimer = setTimeout(function() {
-         setShowOnlyPispalaVenues(prevState => !prevState)
+      setShowOnlyPispalaVenues(prevState => !prevState)
     }, 5000)
   }
 
@@ -63,6 +67,7 @@ function App() {
           onLabel=""
           onChange={onSwitchChange}
         />
+        <NavMenu />
       </header>
       {
         errorMsg !== null

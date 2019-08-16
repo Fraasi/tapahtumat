@@ -1,0 +1,11 @@
+.menu {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  right: 100vw;
+
+}
+
+.menu.open {
+  right: 0px;
+}
