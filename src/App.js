@@ -14,7 +14,6 @@ function App() {
   const [data, setData] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [expanded, setExpanded] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
   const [showOnlyPispalaVenues, setShowOnlyPispalaVenues ] = useState(true)
 
   useEffect(() => {
@@ -24,7 +23,8 @@ function App() {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
       }
       ).then(docs => {
-        const returnData = docs[0].data.sort((first, second) => first.name < second.name ? -1 : 1)
+        console.log('docs:', docs)
+        const returnData = docs[0].data
         setData(() => returnData)
         console.log('data', returnData)
       }).catch(err => {
@@ -37,7 +37,6 @@ function App() {
     setExpanded(prev => !prev)
     if (expanded) document.querySelector('.collapsible.expandable').M_Collapsible.close()
     else document.querySelector('.collapsible.expandable').M_Collapsible.open()
-    setMenuOpen(prevState => !prevState)
   }
 
   let downTimer = null
@@ -76,7 +75,8 @@ function App() {
             </div>)
             : (<Collapsible accordion={false} >
               {
-                data.map((el, i) => {
+                data.eventsData
+                  .sort((first, second) => first.name < second.name ? -1 : 1) .map((el, i) => {
                   return <Event data={el} key={el.name} showOnlyPispalaVenues={showOnlyPispalaVenues}></Event>
                 })
               }

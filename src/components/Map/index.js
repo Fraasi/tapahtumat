@@ -32,7 +32,8 @@ const Map = () => {
         >Paikat kartalla (työn alla)</a>
       }
     >
-      
+      <div id="map"></div>
+
     </Modal>
   )
 }

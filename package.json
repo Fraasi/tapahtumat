@@ -1,7 +1,7 @@
 {
   "name": "tapahtumat",
   "author": "fraasi <fraasi.gh@gmail.com> (https://fraasi.github.io)",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "homepage": ".",
   "scripts": {
@@ -27,9 +27,11 @@
     ]
   },
   "dependencies": {
+    "leaflet": "^1.5.1",
     "mongodb-stitch-browser-sdk": "^4.5.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-leaflet": "^2.4.0",
     "react-materialize": "^3.3.3",
     "react-scripts": "3.0.1"
   },
