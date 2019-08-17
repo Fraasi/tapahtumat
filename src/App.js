@@ -75,9 +75,15 @@ function App() {
             </div>)
             : (<Collapsible accordion={false} >
               {
-                data.eventsData
+                data.events_data
                   .sort((first, second) => first.name < second.name ? -1 : 1) .map((el, i) => {
-                  return <Event data={el} key={el.name} showOnlyPispalaVenues={showOnlyPispalaVenues}></Event>
+                    return (
+                      <Event
+                        data={el}
+                        key={el.name}
+                        showOnlyPispalaVenues={showOnlyPispalaVenues}>
+                      </Event>
+                    )
                 })
               }
             </Collapsible>)
