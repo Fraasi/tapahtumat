@@ -3,29 +3,29 @@ import Map from '../Map'
 import pkgJson from '../../../package.json'
 import './nav-menu.css'
 
-const Nav = () => {
+const NavMenu = ({mapData}) => {
 
-  const [open, setOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   const handleClick = () => {
-    if (process.env.NODE_ENV === "production" && !open) {
-      window.dataLayer.push({ 'event': 'about_modal_opened' })
+    if (process.env.NODE_ENV === "production" && !isOpen) {
+      window.dataLayer.push({ 'event': 'NavMenu_opened' })
     }
-    setOpen(prev => !prev)   
+    setIsOpen(prev => !prev)   
   }
 
   return (
     <>
-      <div id="burger-container" className={`${open ? 'open' : ''}`} onClick={handleClick}>
+      <div id="burger-container" className={`${isOpen ? 'open' : ''}`} onClick={handleClick}>
         <div id="burger">
           <span>&nbsp;</span>
           <span>&nbsp;</span>
           <span>&nbsp;</span>
         </div>
       </div>
-      <div className={`menu${open ? ' open' : ''}`} >
+      <div className={`menu${isOpen ? ' open' : ''}`} >
         <div className="menu-content">
           <h5>
-            Pispalan tapahtumat (v{pkgJson.version})
+            Pispalan tapahtumat <span className="version">v{pkgJson.version}</span>
           </h5>
           <p>
             Pispalan harjun tapahtumat yhdellä sivustolla.
@@ -41,7 +41,7 @@ const Nav = () => {
           <p>
             Jos sivulta löytyy virheitä tai on jotain muuta valitettavaa tai haluat ehdottaa jotain paikkaa listalle, sähköpostia voi lähettää osoitteeseen <a href="mailto:fraasi.gh@gmail.com">fraasi.gh@gmail.com</a>
           </p>
-          <Map />
+          <Map mapData={mapData}/>
         </div>
 
 
@@ -50,4 +50,4 @@ const Nav = () => {
   )
 }
 
-export default Nav
+export default NavMenu

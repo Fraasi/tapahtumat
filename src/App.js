@@ -23,7 +23,6 @@ function App() {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
       }
       ).then(docs => {
-        console.log('docs:', docs)
         const returnData = docs[0].data
         setData(() => returnData)
         console.log('data', returnData)
@@ -63,7 +62,7 @@ function App() {
           onLabel=""
           onChange={onSwitchChange}
         />
-        <NavMenu />
+        <NavMenu mapData={data === null ? [] : data.map_data} />
       </header>
       {
         errorMsg !== null
@@ -76,7 +75,7 @@ function App() {
             : (<Collapsible accordion={false} >
               {
                 data.events_data
-                  .sort((first, second) => first.name < second.name ? -1 : 1) .map((el, i) => {
+                  .sort((first, second) => first.name < second.name ? -1 : 1).map((el, i) => {
                     return (
                       <Event
                         data={el}

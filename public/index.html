@@ -6,7 +6,6 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91006134-3"></script>
   <script>
     if (window.location.hostname !== 'localhost') {
-      console.log('not localhost:', window.location.hostname)
       window.dataLayer = window.dataLayer || [];
       function gtag() { window.dataLayer.push(arguments); }
       gtag('js', new Date());
@@ -35,6 +34,9 @@
   <!-- material-ui -->
   <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no">
   <link type="text/css" rel="stylesheet" href="materialize.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
   <title>Pispalan Tapahtumat</title>
 </head>
 

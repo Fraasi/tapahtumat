@@ -1,6 +1,7 @@
 #modal-0 {
     overflow: -moz-scrollbars-vertical; 
     overflow-y: scroll;
+    height: 85vh;
 }
 
 #modal-0::-webkit-scrollbar {
@@ -15,4 +16,25 @@
     border: 2px solid #ffffff;
 }
 
-#mapid { height: 180px; }
+.map-link {
+    text-decoration: #61edff  underline;
+    color: #61edff;
+    cursor: pointer;
+}
+
+.map {
+    height: 100%;
+}
+.leaflet-container {
+    height: 70vh;
+    /* width: 500px; */
+  }
+
+.modal .modal-content {
+    padding: 10px 0 10px 10px;
+    height: 100%;
+ }
+
+.modal-content > h4, .modal-footer {
+    display: none;
+}

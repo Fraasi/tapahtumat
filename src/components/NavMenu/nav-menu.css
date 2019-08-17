@@ -67,3 +67,7 @@
   text-decoration-line: underline;
   color: #61edff;
 }
+
+.version {
+  font-size: .75em;
+}
