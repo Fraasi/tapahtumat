@@ -24,9 +24,11 @@
 
 .map {
     height: 100%;
+    z-index: 10000;
 }
 .leaflet-container {
     height: 70vh;
+    z-index: 10000;
     /* width: 500px; */
   }
 

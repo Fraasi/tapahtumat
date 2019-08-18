@@ -42,24 +42,9 @@
   top: 10px;
 }
 
-.menu {
-  width: 0px;
-  height: 100vh;
-  position: absolute;
-  left: 0px;
-  transition: all ease-in-out 0.5s;
-  background: #1d7d74;
-  color: #fff;
-  opacity: 0.95;
-  overflow: hidden;
-}
-
-.menu.open {
-  width: 80vw;
-}
 
 .menu-content {
-  width: 50vw;
+  width: 80%;
   margin: 10vh auto;
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
-import { Modal, Button } from 'react-materialize'
+import Modal from '@material-ui/core/Modal';
+
 import './map.css'
 
 let tempMapData = []
@@ -32,7 +33,7 @@ class LMap extends Component {
   }
 }
 
-const Map = ({ mapData }) => {
+const Map = ({ mapData, isMapOpen, setMap }) => {
   tempMapData = mapData
   const onModalOpen = () => {
     if (process.env.NODE_ENV === "production") {
@@ -43,24 +44,12 @@ const Map = ({ mapData }) => {
 
   return (
     <Modal
-      options={{
-        onOpenEnd: onModalOpen
-      }}
-      actions={
-        <Button waves="green" modal="close" style={{
-          position: 'absolute',
-          top: '5px',
-          right: '5px'
-        }}>
-          X
-        </Button>
-      }
-      trigger={
-        <p
-          title="Kartalla"
-          className="map-link"
-        >Paikat kartalla (työn alla)</p>
-      }
+    aria-labelledby="simple-modal-title"
+    aria-describedby="simple-modal-description"
+    open={isMapOpen}
+    onRendered={onModalOpen}
+    onClose={() => setMap(false)}
+    onBackdropClick={() => setMap(false)}
     >
       <div className="map"></div>
     </Modal>
