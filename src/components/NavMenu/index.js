@@ -12,24 +12,25 @@ const useStyles = makeStyles({
     padding: '20px'
   },
   button: {
-    margin: '5px'
+    width: '50%',
+    margin: '5px 25%'
   },
 })
 
 const NavMenu = ({ mapData }) => {
   const classes = useStyles()
-  const [isOpen, setIsOpen] = useState(false)
-  const [isMapOpen, setMap] = useState(false)
+  const [isNavOpen, setNav] = useState(true)
+  const [isMapOpen, setMap] = useState(true)
   const toggleDrawer = (open) => {
-    setIsOpen(open)
-    if (process.env.NODE_ENV === "production" && !isOpen) {
+    setNav(open)
+    if (process.env.NODE_ENV === "production" && !isNavOpen) {
       window.dataLayer.push({ 'event': 'NavMenu_opened' })
     }
   }
 
   return (
     <>
-      <div id="burger-container" className={`${isOpen ? 'open' : ''}`} onClick={() => toggleDrawer(true)}>
+      <div id="burger-container" className={`${isNavOpen ? 'open' : ''}`} onClick={() => toggleDrawer(true)}>
         <div id="burger">
           <span>&nbsp;</span>
           <span>&nbsp;</span>
@@ -37,7 +38,7 @@ const NavMenu = ({ mapData }) => {
         </div>
       </div>
       <div className="drawer-container">
-        <Drawer open={isOpen} onClose={() => toggleDrawer(false)}>
+        <Drawer open={isNavOpen} onClose={() => toggleDrawer(false)}>
           <div className={`menu-content ${classes.drawer}`}>
             <h5>
               Pispalan tapahtumat <span className="version">v{pkgJson.version}</span>
@@ -62,7 +63,7 @@ const NavMenu = ({ mapData }) => {
               }
               }>
               Kartalla
-      </Button>
+            </Button>
           </div>
 
         </Drawer>
