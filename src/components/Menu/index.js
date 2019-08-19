@@ -4,27 +4,28 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles'
 import Map from '../Map'
 import pkgJson from '../../../package.json'
-import './nav-menu.css'
+import './menu.css'
 
 const useStyles = makeStyles({
   drawer: {
     width: '80vw',
+    maxWidth: '300px',
     padding: '20px'
   },
   button: {
     width: '50%',
-    margin: '5px 25%'
+    margin: '5px 25%',
   },
 })
 
-const NavMenu = ({ mapData }) => {
+const Menu = () => {
   const classes = useStyles()
   const [isNavOpen, setNav] = useState(true)
-  const [isMapOpen, setMap] = useState(true)
+  const [isMapOpen, setMap] = useState(false)
   const toggleDrawer = (open) => {
     setNav(open)
     if (process.env.NODE_ENV === "production" && !isNavOpen) {
-      window.dataLayer.push({ 'event': 'NavMenu_opened' })
+      window.dataLayer.push({ 'event': 'Menu_opened' })
     }
   }
 
@@ -67,11 +68,11 @@ const NavMenu = ({ mapData }) => {
           </div>
 
         </Drawer>
-        <Map mapData={mapData} isMapOpen={isMapOpen} setMap={setMap}/>
+        <Map isMapOpen={isMapOpen} setMap={setMap}/>
       </div>
 
     </>
   )
 }
 
-export default NavMenu
+export default Menu

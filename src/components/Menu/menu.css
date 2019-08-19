@@ -9,7 +9,7 @@
   border-radius: 5px;  
   cursor: pointer;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
-
+  border: 1px solid rgba(255, 255, 255, 0.23);
 }
 
 #burger{
@@ -19,8 +19,8 @@
 #burger span{
   background: #eee;
   display: block;
-  width: 30px;
-  height: 5px;
+  width: 25px;
+  height: 3px;
   margin-bottom: 5px;
   position: relative;
   top: 0;
@@ -39,19 +39,18 @@
 
 #burger-container.open span:nth-child(1){
   transform: rotate(-135deg);
-  top: 10px;
+  top: 7px;
 }
-
 
 .menu-content {
-  width: 80%;
-  margin: 10vh auto;
+  width: 85%;
+  margin: 10px auto;
 }
 
-.menu-content a {
+/* .menu-content a {
   text-decoration-line: underline;
   color: #61edff;
-}
+} */
 
 .version {
   font-size: .75em;

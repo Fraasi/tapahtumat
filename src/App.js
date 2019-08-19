@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Preloader, Collapsible, Switch } from 'react-materialize'
 import Event from './components/Event'
-import NavMenu from './components/NavMenu'
+import Menu from './components/Menu'
 import './App.css'
 
 import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
@@ -11,7 +11,7 @@ const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').d
 
 function App() {
 
-  const [data, setData] = useState(null)
+  const [events, setEvents] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [expanded, setExpanded] = useState(false)
   const [showOnlyPispalaVenues, setShowOnlyPispalaVenues ] = useState(true)
@@ -23,9 +23,10 @@ function App() {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
       }
       ).then(docs => {
-        const returnData = docs[0].data
-        setData(() => returnData)
-        console.log('data', returnData)
+        const { events_data, map_data} = docs[0].data
+        window.map_data = map_data
+        setEvents(() => events_data)
+        console.log('data', events_data)
       }).catch(err => {
         console.error('Data fetch error:', err)
         setErrorMsg(() => err)
@@ -62,19 +63,19 @@ function App() {
           onLabel=""
           onChange={onSwitchChange}
         />
-        <NavMenu mapData={data === null ? [] : data.map_data} />
+        <Menu />
       </header>
       {
         errorMsg !== null
           ? (<div className="error-loader">{errorMsg.toString()}</div>)
-          : data === null
+          : events === null
             ? (<div className="error-loader">
               Haetaan tapahtumia...<br /><br />
               <Preloader size="small" flashing />
             </div>)
             : (<Collapsible accordion={false} >
               {
-                data.events_data
+                events
                   .sort((first, second) => first.name < second.name ? -1 : 1).map((el, i) => {
                     return (
                       <Event

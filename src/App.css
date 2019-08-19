@@ -48,7 +48,7 @@ button[title="Info"] {
 .switch {
   position: absolute;
   top: 85px;
-  right: 4px;
+  right: 2px;
   transform: rotate(90deg);
 }
 

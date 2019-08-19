@@ -8,6 +8,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+
+    overflow: -moz-scrollbars-vertical; 
+    overflow-y: scroll;
 }  
 
 @media only screen and (max-width: 600px) {
@@ -20,3 +23,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+
+body::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+body::-webkit-scrollbar:vertical {
+    width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+} 
