@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Preloader, Collapsible, Switch } from 'react-materialize'
+import Switch from '@material-ui/core/Switch'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Event from './components/Event'
 import Menu from './components/Menu'
 import './App.css'
@@ -13,17 +14,16 @@ function App() {
 
   const [events, setEvents] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
-  const [expanded, setExpanded] = useState(false)
-  const [showOnlyPispalaVenues, setShowOnlyPispalaVenues ] = useState(true)
+  const [isSwitchOn, setSwitch] = useState(false)
+  const [showOnlyPispalaVenues, setShowOnlyPispalaVenues] = useState(true)
 
   useEffect(() => {
-    document.querySelector('.switch').title = 'Avaa/sulje kaikki'
     client.auth.loginWithCredential(new AnonymousCredential())
       .then(user => {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
       }
       ).then(docs => {
-        const { events_data, map_data} = docs[0].data
+        const { events_data, map_data } = docs[0].data
         window.map_data = map_data
         setEvents(() => events_data)
         console.log('data', events_data)
@@ -34,16 +34,14 @@ function App() {
   }, [])
 
   const onSwitchChange = () => {
-    setExpanded(prev => !prev)
-    if (expanded) document.querySelector('.collapsible.expandable').M_Collapsible.close()
-    else document.querySelector('.collapsible.expandable').M_Collapsible.open()
+    setSwitch(prev => !prev)
   }
 
   let downTimer = null
 
   const handleMouseDown = () => {
     clearTimeout(downTimer);
-    downTimer = setTimeout(function() {
+    downTimer = setTimeout(function () {
       setShowOnlyPispalaVenues(prevState => !prevState)
     }, 5000)
   }
@@ -59,9 +57,11 @@ function App() {
           Pispalan Tapahtumat
         </h1>
         <Switch
-          offLabel=""
-          onLabel=""
-          onChange={onSwitchChange}
+          className="switch"
+          checked={isSwitchOn}
+          onClick={onSwitchChange}
+          title="Avaa/sulje kaikki"
+          inputProps={{ 'aria-label': 'primary checkbox' }}
         />
         <Menu />
       </header>
@@ -71,9 +71,9 @@ function App() {
           : events === null
             ? (<div className="error-loader">
               Haetaan tapahtumia...<br /><br />
-              <Preloader size="small" flashing />
+              <CircularProgress />
             </div>)
-            : (<Collapsible accordion={false} >
+            : (<div>
               {
                 events
                   .sort((first, second) => first.name < second.name ? -1 : 1).map((el, i) => {
@@ -81,12 +81,13 @@ function App() {
                       <Event
                         data={el}
                         key={el.name}
-                        showOnlyPispalaVenues={showOnlyPispalaVenues}>
+                        showOnlyPispalaVenues={showOnlyPispalaVenues}
+                        isSwitchOn={isSwitchOn}>
                       </Event>
                     )
-                })
+                  })
               }
-            </Collapsible>)
+            </div>)
       }
     </div>
   )

@@ -1,34 +1,65 @@
-import React from 'react'
-import { CollapsibleItem } from 'react-materialize'
+import React, { useState, useEffect } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import ExpansionPanel from '@material-ui/core/ExpansionPanel'
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
+import Typography from '@material-ui/core/Typography'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import './event.css'
 
-const Event = (props) => {
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+  },
+  secondaryHeading: {
+    color: 'rgba(0, 0, 0, 0.6)'
+  },
+  icon: {
+    verticalAlign: 'bottom',
+    height: 20,
+    width: 20,
+  },
+}));
 
+const Event = (props) => {
+  // console.log('props:', props)
+  const classes = useStyles()
+  const [isOpen, setOpen] = useState(true)
+  useEffect(() => {
+    setOpen(() => props.isSwitchOn)
+    }, [props.isSwitchOn]
+  )
+
+  const onTitleClick = () => setOpen(prev => !prev)
   let { name, url, events } = props.data
-    
+
   if (props.showOnlyPispalaVenues) {
     const nonPispala = ['dogs_home', 'maanalainen', 'visit_tampere', 'huurupiilo']
     if (nonPispala.includes(name)) return null
   }
 
-  // onSelect is not a function error without this
-  const onTitleClick = () => { }
-
   if (events.error_msg) {
     return (
-      <CollapsibleItem
-        header={`${events.error_title} (${name}) *!*!*`}
-        onSelect={onTitleClick}
-      >
-        <span className="sub-header">Käyhän nettisivuilla&nbsp;<a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
-        <ul>
-          {
-            <li key={'error'}>
-              {events.error_msg}
-            </li>
-          }
-        </ul>
-      </CollapsibleItem>
+      <ExpansionPanel className={classes.root} expanded={isOpen}>
+        <ExpansionPanelSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1c-content"
+        >
+          <div className="collapsible-header">
+            {`${events.error_title} (${name}) *!*!*`}
+          </div>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails className="collapsible-body">
+          <span className="sub-header">Käyhän nettisivuilla&nbsp;<a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
+          <ul>
+            {
+              <li key={'error'}>
+                {events.error_msg}
+              </li>
+            }
+          </ul>
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
     )
   }
 
@@ -48,7 +79,7 @@ const Event = (props) => {
         const endDay = endDate.getDate()
         const endMonth = endDate.getMonth()
         return !(endDay < todayDay && endMonth <= todayMonth)
-      } 
+      }
       const startDate = new Date(startTimeStamp)
       const startDay = startDate.getDate()
       const startMonth = startDate.getMonth()
@@ -65,7 +96,7 @@ const Event = (props) => {
       endDateParsed = `–${endDate.getDate()}.${endDate.getMonth() + 1}`
     }
     const dateParsed = `${startDate.getDate()}.${startDate.getMonth() + 1}${endDateParsed}`
-    const eventToday = ( (startDate.getDate() === todayDay) && (startDate.getMonth() === todayMonth) )
+    const eventToday = ((startDate.getDate() === todayDay) && (startDate.getMonth() === todayMonth))
     if (eventToday) isThereEventToday = true
     const todayBGColor = eventToday ? 'rgba(39,169,157,0.7)' : ''
 
@@ -77,28 +108,40 @@ const Event = (props) => {
   })
 
   return (
-    <CollapsibleItem
-      header={`${cleanedName} (${pastEventsFiltered.length}) ${isThereEventToday ? '!' : ''}`}
-      onSelect={onTitleClick}
-    >
-      <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span>
-      {
-        name === 'hirvitalo' &&
-        <>
-          <br />
-          <span className="sub-header">Kansankeittiö lauantaisin <a href="https://www.facebook.com/groups/294496307351291/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/groups/294496307351291/</a></span>
-        </>
-      }
+    <ExpansionPanel className={classes.root} expanded={isOpen}>
+      <ExpansionPanelSummary
+        expandIcon={<ExpandMoreIcon />}
+        aria-controls="panel1c-content"
+        id="panel1c-header"
+        onClick={onTitleClick}
+      >
+        <div className="collapsible-header">
+          {cleanedName}
+          <Typography className={classes.secondaryHeading}>
+            &nbsp;{` (${pastEventsFiltered.length}) ${isThereEventToday ? '!' : ''}`}
+          </Typography>
+        </div>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails className="collapsible-body">
+        <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span>
+        {
+          name === 'hirvitalo' &&
+          <>
+            <br />
+            <span className="sub-header">Kansankeittiö lauantaisin <a href="https://www.facebook.com/groups/294496307351291/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/groups/294496307351291/</a></span>
+          </>
+        }
 
-      <br /><br />
-      <table>
-        <tbody>
-          {
-            eventRows
-          }
-        </tbody>
-      </table>
-    </CollapsibleItem>
+        <br /><br />
+        <table>
+          <tbody>
+            {
+              eventRows
+            }
+          </tbody>
+        </table>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   )
 }
 

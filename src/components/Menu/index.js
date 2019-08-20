@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 const Menu = () => {
   const classes = useStyles()
-  const [isNavOpen, setNav] = useState(true)
+  const [isNavOpen, setNav] = useState(false)
   const [isMapOpen, setMap] = useState(false)
   const toggleDrawer = (open) => {
     setNav(open)
@@ -31,7 +31,11 @@ const Menu = () => {
 
   return (
     <>
-      <div id="burger-container" className={`${isNavOpen ? 'open' : ''}`} onClick={() => toggleDrawer(true)}>
+      <div
+        id="burger-container"
+        className={`${isNavOpen ? 'open' : ''}`}
+        onClick={() => toggleDrawer(true)}
+        title="Menu">
         <div id="burger">
           <span>&nbsp;</span>
           <span>&nbsp;</span>

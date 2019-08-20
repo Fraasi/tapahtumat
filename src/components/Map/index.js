@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
 import Modal from '@material-ui/core/Modal'

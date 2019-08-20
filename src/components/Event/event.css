@@ -1,11 +1,23 @@
-.collapsible.expandable {
+.MuiExpansionPanel-root.Mui-expanded {
+  margin:  0 0 3px 0 !important;
+}
+
+.MuiExpansionPanelDetails-root.collapsible-body {
+  display: block;
+}
+
+.MuiExpansionPanelSummary-content, .MuiExpansionPanelSummary-content.Mui-expanded {
+  margin: 10px 0 !important;
+}
+
+/* .collapsible.expandable {
   max-width: 600px;
-  margin: 0 auto 5px auto;
+  margin: 0 auto;
 }
 
 .collapsible-header {
   font-weight: 600;
-}
+} */
 
 .sub-header {
   font-size: 0.75rem;
@@ -13,7 +25,7 @@
 }
 
 .collapsible-body {
-  padding: 5px 20px 20px 20px;
+  padding: 5px 20px 10px 20px;
   white-space: pre-wrap;
   font-family: monospace;
   background-color: #fff;
