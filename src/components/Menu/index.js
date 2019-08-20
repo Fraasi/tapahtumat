@@ -7,11 +7,6 @@ import pkgJson from '../../../package.json'
 import './menu.css'
 
 const useStyles = makeStyles({
-  drawer: {
-    width: '80vw',
-    maxWidth: '300px',
-    padding: '20px'
-  },
   button: {
     width: '50%',
     margin: '5px 25%',
@@ -22,8 +17,8 @@ const Menu = () => {
   const classes = useStyles()
   const [isNavOpen, setNav] = useState(false)
   const [isMapOpen, setMap] = useState(false)
-  const toggleDrawer = (open) => {
-    setNav(open)
+  const toggleDrawer = () => {
+    setNav(prev => !prev)
     if (process.env.NODE_ENV === "production" && !isNavOpen) {
       window.dataLayer.push({ 'event': 'Menu_opened' })
     }
@@ -34,7 +29,7 @@ const Menu = () => {
       <div
         id="burger-container"
         className={`${isNavOpen ? 'open' : ''}`}
-        onClick={() => toggleDrawer(true)}
+        onClick={toggleDrawer}
         title="Menu">
         <div id="burger">
           <span>&nbsp;</span>
@@ -44,10 +39,10 @@ const Menu = () => {
       </div>
       <div className="drawer-container">
         <Drawer open={isNavOpen} onClose={() => toggleDrawer(false)}>
-          <div className={`menu-content ${classes.drawer}`}>
-            <h5>
+          <div className="menu-content">
+            <h3>
               Pispalan tapahtumat <span className="version">v{pkgJson.version}</span>
-            </h5>
+            </h3>
             <p>
               Pispalan harjun tapahtumat yhdellä sivustolla.
           </p>

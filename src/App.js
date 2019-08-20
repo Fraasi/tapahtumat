@@ -61,6 +61,7 @@ function App() {
           checked={isSwitchOn}
           onClick={onSwitchChange}
           title="Avaa/sulje kaikki"
+          color="default"
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
         <Menu />
@@ -76,7 +77,7 @@ function App() {
             : (<div>
               {
                 events
-                  .sort((first, second) => first.name < second.name ? -1 : 1).map((el, i) => {
+                  .sort((first, second) => first.name < second.name ? -1 : 1).map((el) => {
                     return (
                       <Event
                         data={el}

@@ -1,13 +1,20 @@
  .map {
     position: relative;
-    height: 90vh;
-    width: 90vh;
-    margin: 5vh auto;
+    max-height: calc(100vh - 50px);
+    height: 99vh;
+    top: 50px;
+    bottom: 0px;
+    margin: 0 auto 5px auto;
 }
 
 .leaflet-container {
     height: 100%;
     width: 100%;
+}
+
+
+#modal-root.modal-root[role="presentation"] {
+    z-index: 2100 !important;
 }
 
 .modal-content {

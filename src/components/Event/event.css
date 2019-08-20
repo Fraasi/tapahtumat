@@ -10,14 +10,13 @@
   margin: 10px 0 !important;
 }
 
-/* .collapsible.expandable {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 .collapsible-header {
   font-weight: 600;
-} */
+} 
+
+.secondary-header {
+  color: rgba(0, 0, 0, 0.6);
+}
 
 .sub-header {
   font-size: 0.75rem;
@@ -31,6 +30,9 @@
   background-color: #fff;
 }
 
+table {
+  border-spacing: 0px;
+}
 td {
   vertical-align: top;
   padding: 0;

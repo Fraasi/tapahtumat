@@ -1,7 +1,7 @@
 {
   "name": "tapahtumat",
   "author": "fraasi <fraasi.gh@gmail.com> (https://fraasi.github.io)",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "homepage": ".",
   "scripts": {
@@ -34,13 +34,10 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.4.0",
-    "react-materialize": "^3.3.3",
     "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.3",
     "date-fns": "^1.30.1",
-    "eslint-plugin-react": "^7.14.3",
-    "node-fetch": "^2.6.0"
+    "eslint-plugin-react": "^7.14.3"
   }
 }

@@ -7,6 +7,14 @@
 
 /* @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap'); */
 
+.App {
+  position: relative;
+  padding-bottom: 5px;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #26a69a;
+}
+
 .App-header {
   user-select: none;
   position: relative;
@@ -39,8 +47,8 @@
 
 .MuiSwitch-root.switch {
   position: absolute;
-  top: 78px;
   right: 10px;
+  bottom: 15px;
   transform: rotate(90deg);
   background-color: #1d7d74;
   border-radius: 5px;
@@ -50,4 +58,5 @@
 
 .error-loader {
   text-align: center;
+  background-color: #fff;
 }

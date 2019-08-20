@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
-import Typography from '@material-ui/core/Typography'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import './event.css'
 
@@ -22,15 +21,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Event = (props) => {
-  // console.log('props:', props)
-  const classes = useStyles()
-  const [isOpen, setOpen] = useState(true)
+  const [isOpen, setOpen] = useState(false)
   useEffect(() => {
     setOpen(() => props.isSwitchOn)
     }, [props.isSwitchOn]
   )
+  const classes = useStyles()
 
   const onTitleClick = () => setOpen(prev => !prev)
+
   let { name, url, events } = props.data
 
   if (props.showOnlyPispalaVenues) {
@@ -117,9 +116,9 @@ const Event = (props) => {
       >
         <div className="collapsible-header">
           {cleanedName}
-          <Typography className={classes.secondaryHeading}>
+          <span className="secondary-header">
             &nbsp;{` (${pastEventsFiltered.length}) ${isThereEventToday ? '!' : ''}`}
-          </Typography>
+          </span>
         </div>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className="collapsible-body">

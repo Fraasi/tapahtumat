@@ -38,6 +38,8 @@ const Map = ({ isMapOpen, setMap }) => {
 
   return (
     <Modal
+      id="modal-root"
+      className="modal-root"
       aria-labelledby="simple-modal-title"
       aria-describedby="simple-modal-description"
       open={isMapOpen}
