@@ -6,12 +6,17 @@ import Map from '../Map'
 import pkgJson from '../../../package.json'
 import './menu.css'
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   button: {
     width: '50%',
     margin: '5px 25%',
+    background: theme.custom.primary,
+    color: "white",
+    "&:hover": {
+      background: theme.custom.onhover,
+    }
   },
-})
+}))
 
 const Menu = () => {
   const classes = useStyles()
