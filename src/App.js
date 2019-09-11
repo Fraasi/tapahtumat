@@ -24,9 +24,11 @@ function App() {
       }
       ).then(docs => {
         const { events_data, map_data } = docs[0].data
-        window.map_data = map_data
         setEvents(() => events_data)
         console.log('data', events_data)
+        // only way to pass data to LMap, 'cos of the way 
+        // leaflet works, no props no context :(
+        window.map_data = map_data
       }).catch(err => {
         console.error('Data fetch error:', err)
         setErrorMsg(() => err)
