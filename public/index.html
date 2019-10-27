@@ -6,10 +6,10 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91006134-3"></script>
   <script>
     if (window.location.hostname !== 'localhost') {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { window.dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'UA-91006134-3');
+      window.dataLayer = window.dataLayer || []
+      window.gtag = function() { window.dataLayer.push(arguments) }
+      gtag('js', new Date())
+      gtag('config', 'UA-91006134-3')
     }
   </script>
 

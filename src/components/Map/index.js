@@ -28,7 +28,11 @@ const LMap = () => (
 const Map = ({ isMapOpen, setMap }) => {
   const onModalOpen = () => {
     if (process.env.NODE_ENV === "production") {
-      window.dataLayer.push({ 'event': 'map_modal_opened' })
+      // eslint-disable-next-line
+      gtag('event', 'map_opened', {
+        'event_category': 'user',
+        'event_label': 'map',
+      })
     }
     const mapDiv = document.querySelector('.map')
     const button = document.querySelector('.map-close-button')
