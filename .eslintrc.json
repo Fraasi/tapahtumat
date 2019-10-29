@@ -1,11 +1,13 @@
 {
+    "extends": "react-app",
     "env": {
         "browser": true,
         "es6": true
     },
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        "gtag": "readonly"
     },
     "parserOptions": {
         "ecmaFeatures": {

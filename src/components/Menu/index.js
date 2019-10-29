@@ -26,7 +26,6 @@ const Menu = () => {
   const toggleDrawer = () => {
     setNav(prev => !prev)
     if (process.env.NODE_ENV === "production" && !isNavOpen) {
-      // eslint-disable-next-line
       gtag('event', 'menu_opened', {
         'event_category': 'user',
         'event_label': 'menu',

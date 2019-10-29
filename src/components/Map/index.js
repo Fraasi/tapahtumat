@@ -28,7 +28,6 @@ const LMap = () => (
 const Map = ({ isMapOpen, setMap }) => {
   const onModalOpen = () => {
     if (process.env.NODE_ENV === "production") {
-      // eslint-disable-next-line
       gtag('event', 'map_opened', {
         'event_category': 'user',
         'event_label': 'map',
