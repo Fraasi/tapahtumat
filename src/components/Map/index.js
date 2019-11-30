@@ -1,3 +1,4 @@
+/*global gtag*/
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'

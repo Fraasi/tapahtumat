@@ -1,17 +1,18 @@
  .map {
     position: relative;
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - 60px);
     height: 99vh;
-    top: 50px;
+    max-width: 600px;
+    top: 60px;
     bottom: 0px;
-    margin: 0 auto 5px auto;
+    margin: 0 auto;
+    padding-right: 17px;
 }
 
 .leaflet-container {
     height: 100%;
     width: 100%;
 }
-
 
 #modal-root.modal-root[role="presentation"] {
     z-index: 2100 !important;
@@ -24,12 +25,12 @@
 .MuiButtonBase-root.map-close-button {
     position: absolute;
     padding: 0px;
-    width:10px;
+    width: 10px;
     font-size: 25px;
     font-weight: bold;
     color: #ffffff;
     top: 10px;
-    right: 10px;
+    right: 25px;
     background-color: #26a69a;
     z-index: 1500;
 }

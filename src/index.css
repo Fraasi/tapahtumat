@@ -8,10 +8,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-
-  overflow: -moz-scrollbars-vertical; 
+  overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
-}  
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -29,4 +28,4 @@ body::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.23);
-} 
+}
