@@ -30,14 +30,14 @@ const Event = (props) => {
 
   const onTitleClick = () => setOpen(prev => !prev)
 
-  let { name, url, events } = props.data
+  let { name, url, events, error_msg, error_title } = props.data
 
   if (props.showOnlyPispalaVenues) {
     const nonPispala = ['dogs_home', 'maanalainen', 'visit_tampere', 'huurupiilo']
     if (nonPispala.includes(name)) return null
   }
 
-  if (events.error_msg) {
+  if (error_msg) {
     return (
       <ExpansionPanel className={classes.root} expanded={isOpen}>
         <ExpansionPanelSummary
@@ -45,7 +45,7 @@ const Event = (props) => {
           aria-controls="panel1c-content"
         >
           <div className="collapsible-header">
-            {`${events.error_title} (${name}) *!*!*`}
+            {`${error_title} (${name}) *!*!*`}
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className="collapsible-body">
@@ -53,7 +53,7 @@ const Event = (props) => {
           <ul>
             {
               <li key={'error'}>
-                {events.error_msg}
+                {error_msg}
               </li>
             }
           </ul>
