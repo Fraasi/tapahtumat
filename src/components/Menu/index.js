@@ -51,14 +51,17 @@ const Menu = () => {
         <Drawer open={isNavOpen} onClose={() => toggleDrawer(false)}>
           <div className="menu-content">
             <h3>
-              Pispalan tapahtumat <span className="version">v{pkgJson.version}</span>
+              Pispalan tapahtumat&nbsp;
+              <span className="version">
+                v{pkgJson.version} &copy;Fraasi
+              </span>
             </h3>
             <p>
               Pispalan harjun tapahtumat yhdellä sivustolla.
           </p>
             <p>
               <strong>Vinkki: </strong>
-              Tämä nettisivu (<a href="https://fraasi.github.io/pispalan-tapahtumat/" target="_blank" rel="noopener noreferrer">https://fraasi.github.io/pispalan-tapahtumat/</a>) on suunniteltu kännykälle ja toimii parhaiten kun avaa nettisivun luurin selaimessa ja valitsee asetuksista 'Add to home screen', jolloin lähtöruudulle napsahtaa kuvake jota klikkaamalla sivu toimii kuten muutkin 'äpit'.
+              Tämä nettisivu (<a href="https://pispala.events/" target="_blank" rel="noopener noreferrer">https://pispala.events/</a>) on suunniteltu kännykälle ja toimii parhaiten kun avaa nettisivun luurin selaimessa ja valitsee asetuksista 'Add to home screen', jolloin lähtöruudulle napsahtaa kuvake jota klikkaamalla sivu toimii kuten muutkin 'äpit'.
           </p>
             <p>
               Jos sivulta löytyy virheitä tai haluat ehdottaa jotain paikkaa listalle, palautetta voi lähettää osoitteeseen <a href="mailto:fraasi.gh@gmail.com">fraasi.gh@gmail.com</a>

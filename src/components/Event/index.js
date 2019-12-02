@@ -43,9 +43,11 @@ const Event = (props) => {
         <ExpansionPanelSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1c-content"
+          id="panel1c-header"
+          onClick={onTitleClick}
         >
           <div className="collapsible-header">
-            {`${error_title} (${name}) *!*!*`}
+            {`${name} (${error_title} 🐛)`}
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className="collapsible-body">

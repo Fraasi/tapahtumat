@@ -1,4 +1,3 @@
-/*global gtag*/
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
@@ -10,7 +9,7 @@ import './map.css'
 const LMap = () => (
   <LeafletMap center={[61.50238, 23.71477]} zoom={13}>
     <TileLayer
-      attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
       url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
     />
     {
@@ -29,7 +28,7 @@ const LMap = () => (
 const Map = ({ isMapOpen, setMap }) => {
   const onModalOpen = () => {
     if (process.env.NODE_ENV === "production") {
-      gtag('event', 'map_opened', {
+      window.gtag('event', 'map_opened', {
         'event_category': 'user',
         'event_label': 'map',
       })

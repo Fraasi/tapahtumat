@@ -40,5 +40,6 @@
   },
   "eslintIgnore": [
     "/docs/**"
-  ]
+  ],
+  "license": "UNLICENSED"
 }
