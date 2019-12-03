@@ -37,6 +37,8 @@ const Event = (props) => {
     if (nonPispala.includes(name)) return null
   }
 
+  const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
+
   if (error_msg) {
     return (
       <ExpansionPanel className={classes.root} expanded={isOpen}>
@@ -47,7 +49,10 @@ const Event = (props) => {
           onClick={onTitleClick}
         >
           <div className="collapsible-header">
-            {`${name} (${error_title} 🐛)`}
+            {cleanedName}
+            <span className="secondary-header">
+              ({error_title} 🐛)
+            </span>
           </div>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className="collapsible-body">
@@ -65,7 +70,6 @@ const Event = (props) => {
   }
 
   if (name === 'vastavirta') events = events.slice(0, 10)
-  const cleanedName = `${name.charAt(0).toUpperCase()}${name.slice(1)}`.replace(/_/g, ' ')
   const today = new Date()
   const todayDay = today.getDate()
   const todayMonth = today.getMonth()
