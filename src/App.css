@@ -3,10 +3,6 @@
   src: url('assets/AnnieUseYourTelescope-Regular.ttf');
 }
 
-/* @import url('https://fonts.googleapis.com/css?family=Merienda&display=swap'); */
-
-/* @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap'); */
-
 .App {
   position: relative;
   padding-bottom: 5px;
@@ -32,15 +28,13 @@
 
 .title {
   position: absolute;
-  top: 1vh;
+  /* top: 1vh; */
   left: 3%;
   margin: 0;
   font-size: calc(10px + 5vmin);
   letter-spacing: 2px;
   font-weight: 600;
   font-family: Annie, cursive;
-  /* font-family: 'Merienda', cursive; */
-  /* font-family: 'Rock salt', cursive; */
   color: rgb(47, 192, 178);
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }

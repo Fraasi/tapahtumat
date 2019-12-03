@@ -17,7 +17,6 @@ const sponsors = [
 
 const Sponsors = () => {
   const sponsorsToShow = sponsors.filter(sponsor => sponsor.until > Date.now())
-  console.log('hj',sponsorsToShow)
   return (
     Boolean(sponsorsToShow.length) && (
       <ul className="sponsors">

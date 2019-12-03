@@ -49,7 +49,7 @@ const Event = (props) => {
           onClick={onTitleClick}
         >
           <div className="collapsible-header">
-            {cleanedName}
+            {cleanedName}&nbsp;
             <span className="secondary-header">
               ({error_title} 🐛)
             </span>

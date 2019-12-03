@@ -10,6 +10,7 @@ body {
   background-size: 100% 100%;
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
+  padding-right: 0px !important;
 }
 
 code {
