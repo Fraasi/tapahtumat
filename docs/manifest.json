@@ -1,6 +1,10 @@
 {
   "short_name": "Pispalan tapahtumat",
   "name": "Pispalan tapahtumat",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#26a69a",
+  "background_color": "#26a69a",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,13 +12,19 @@
       "type": "image/png"
     },
     {
-      "src": "tapahtumat-icon64.png",
+      "src": "/images/tapahtumat-icon64.png",
       "sizes": "64x64 32x32 24x24",
       "type": "image/png"
+    },
+    {
+      "src": "/images/IMG-192.JPG",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/IMG-512.JPG",
+      "sizes": "512x512",
+      "type": "image/png"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  ]
 }
