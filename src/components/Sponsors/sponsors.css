@@ -1,3 +1,20 @@
 ul {
   list-style-type: none;
+  width: 85%;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.sponsors > h5 {
+  margin-top: 0px;
+}
+
+.sponsors h5, .sponsors h4 {
+  text-align: center;
+}
+
+.sponsors img {
+  display: block;
+  width: 120px;
+  margin: 0px auto;
 }

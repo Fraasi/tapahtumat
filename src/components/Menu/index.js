@@ -1,4 +1,3 @@
-/*global gtag*/
 import React, { useState } from 'react'
 import Drawer from '@material-ui/core/Drawer'
 import Button from '@material-ui/core/Button';
@@ -27,7 +26,7 @@ const Menu = () => {
   const toggleDrawer = () => {
     setNav(prev => !prev)
     if (process.env.NODE_ENV === "production" && !isNavOpen) {
-      gtag('event', 'menu_opened', {
+      window.gtag('event', 'menu_opened', {
         'event_category': 'user',
         'event_label': 'menu',
       })
