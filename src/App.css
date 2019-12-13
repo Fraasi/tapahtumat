@@ -8,7 +8,7 @@
   padding-bottom: 5px;
   max-width: 600px;
   margin: 0 auto;
-  background-color: #26a69a;
+  background-color: var(--primary-color);
 }
 
 .App-header {
@@ -16,7 +16,6 @@
   position: relative;
   max-width: 600px;
   margin: 0 auto;
-  background-color: #282c34;
   min-height: 130px;
   background-image: url('./assets/IMG_4189-cr-800.JPG');
   background-position: center;
@@ -35,7 +34,7 @@
   letter-spacing: 2px;
   font-weight: 600;
   font-family: Annie, cursive;
-  color: rgb(47, 192, 178);
+  color: rgb(47, 192, 178); /* have to be lighther than primary */
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
@@ -44,7 +43,7 @@
   right: 10px;
   bottom: 15px;
   transform: rotate(90deg);
-  background-color: #1d7d74;
+  background-color: var(--primary-color);
   border-radius: 5px;
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
   border: 1px solid rgba(255, 255, 255, 0.23);
