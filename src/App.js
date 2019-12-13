@@ -21,12 +21,16 @@ function App() {
     client.auth.loginWithCredential(new AnonymousCredential())
       .then(user => {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
-      }
-      ).then(docs => {
+      }).then(docs => {
         const { events_data, map_data } = docs[0].data
-        setEvents(() => events_data)
-        console.log('data', events_data)
-        // only way to pass data to LMap, 'cos of the way 
+        // sort & move hietis last
+        const hietisIndex = events_data.findIndex(el => el.name === 'hiedanranta')
+        const hietis = events_data.splice(hietisIndex, 1)[0]
+        const sortedEvents = events_data.sort((first, second) => first.name < second.name ? -1 : 1)
+        sortedEvents.push(hietis)
+        console.log('data', sortedEvents)
+        setEvents(() => sortedEvents)
+        // only way to pass data to LMap, 'cos of the way
         // leaflet works, no props no context :(
         window.map_data = map_data
       }).catch(err => {
@@ -78,8 +82,7 @@ function App() {
             </div>)
             : (<div>
               {
-                events
-                  .sort((first, second) => first.name < second.name ? -1 : 1).map((el) => {
+                events.map((el) => {
                     return (
                       <Event
                         data={el}
