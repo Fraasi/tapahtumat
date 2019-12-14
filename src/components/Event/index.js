@@ -30,7 +30,7 @@ const Event = (props) => {
 
   const onTitleClick = () => setOpen(prev => !prev)
 
-  let { name, url, events, error_msg, error_title } = props.data
+  const { name, url, events, error_msg, error_title } = props.data
 
   if (props.showOnlyPispalaVenues) {
     const nonPispala = ['dogs_home', 'maanalainen', 'visit_tampere', 'huurupiilo']
@@ -69,13 +69,12 @@ const Event = (props) => {
     )
   }
 
-  if (name === 'vastavirta') events = events.slice(0, 10)
   const today = new Date()
   const todayDay = today.getDate()
   const todayMonth = today.getMonth()
   let isThereEventToday = false
 
-  const pastEventsFiltered = events
+  let pastEventsFiltered = events
     .sort((ev1, ev2) => ev1.startTimeStamp < ev2.startTimeStamp ? -1 : 1)
     .filter(event => {
       const { startTimeStamp, endTimeStamp } = event
@@ -91,6 +90,7 @@ const Event = (props) => {
       if (startDay < todayDay && startMonth <= todayMonth) return false
       return true
     })
+    if (name === 'vastavirta') pastEventsFiltered = pastEventsFiltered.slice(0, 10)
 
   const eventRows = pastEventsFiltered.map((event, i) => {
     const { startTimeStamp, endTimeStamp, event: happening } = event
