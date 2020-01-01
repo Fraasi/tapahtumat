@@ -1,7 +1,7 @@
 {
   "name": "tapahtumat",
   "author": "fraasi <fraasi.gh@gmail.com> (https://fraasi.github.io)",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "private": true,
   "homepage": ".",
   "scripts": {
@@ -24,19 +24,19 @@
     ]
   },
   "dependencies": {
-    "@material-ui/core": "^4.7.0",
+    "@material-ui/core": "^4.8.1",
     "@material-ui/icons": "^4.5.1",
     "leaflet": "^1.6.0",
     "mongodb-stitch-browser-sdk": "^4.7.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-leaflet": "^2.6.0",
-    "react-scripts": "^3.2.0"
+    "react-leaflet": "^2.6.1",
+    "react-scripts": "^3.3.0"
   },
   "devDependencies": {
-    "eslint": "^6.7.1",
+    "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.17.0",
-    "source-map-explorer": "^2.1.1"
+    "source-map-explorer": "^2.1.2"
   },
   "eslintIgnore": [
     "/docs/**"

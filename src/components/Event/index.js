@@ -6,6 +6,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import './event.css'
 
+const DAY_IN_MS = 86400000 // 24 hours
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: '100%',
@@ -80,14 +82,10 @@ const Event = (props) => {
       const { startTimeStamp, endTimeStamp } = event
       if (endTimeStamp) {
         const endDate = new Date(endTimeStamp)
-        const endDay = endDate.getDate()
-        const endMonth = endDate.getMonth()
-        return !(endDay < todayDay && endMonth <= todayMonth)
+        if ((endDate + DAY_IN_MS) < today) return false
       }
       const startDate = new Date(startTimeStamp)
-      const startDay = startDate.getDate()
-      const startMonth = startDate.getMonth()
-      if (startDay < todayDay && startMonth <= todayMonth) return false
+      if ((startDate + DAY_IN_MS) < today) return false
       return true
     })
     if (name === 'vastavirta') pastEventsFiltered = pastEventsFiltered.slice(0, 10)
