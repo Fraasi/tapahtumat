@@ -2,8 +2,10 @@ import React from 'react'
 import './sponsors.css'
 import knalli_logo from './images/Knallin_Saluuna_logo.jpg'
 
-// const weekInSecs = 604800
-const monthInMilliSecs = 2629746000
+// const WEEK_IN_MILLISECS = 604800
+// const MONTH_IN_MILISECS = 2629746000
+// calculate 3 months from new date
+// new Date(2019, 11, 1).getTime() + (MONTH_IN_MILISECS * 3)
 
 const sponsors = [
   {
@@ -16,7 +18,7 @@ const sponsors = [
     img: knalli_logo,
     url: 'https://FB.com/knallinsaluuna',
     url2: 'https://Instagram.com/knallin_saluuna',
-    until: new Date(2019, 11, 1).getTime() + (monthInMilliSecs * 3)
+    until: new Date(2020, 11, 30).getTime()
   }
 ]
 
@@ -39,7 +41,7 @@ const Sponsors = () => {
         {
           sponsorsToShow.map(sponsor => {
             return (
-              <li key={sponsor.name}>
+              <li key={sponsor.name} className="sponsors">
                 <a href={sponsor.url} target="_blank" rel="noopener noreferrer" onClick={() => handleAddClick(sponsor.name)}>
                   <h4>{sponsor.name}</h4>
                   <img src={sponsor.img} alt={sponsor.name} />
