@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Switch from '@material-ui/core/Switch'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Header from './components/Header'
 import Event from './components/Event'
-import Menu from './components/Menu'
 import './App.css'
 
 import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
@@ -15,6 +14,7 @@ function App() {
   const [events, setEvents] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [isSwitchOn, setSwitch] = useState(false)
+  const [isDarkMode, setDarkMode] = useState(false)
   const [showOnlyPispalaVenues, setShowOnlyPispalaVenues] = useState(true)
 
   useEffect(() => {
@@ -43,35 +43,19 @@ function App() {
     setSwitch(prev => !prev)
   }
 
-  let downTimer = null
-
-  const handleMouseDown = () => {
-    clearTimeout(downTimer);
-    downTimer = setTimeout(function () {
-      setShowOnlyPispalaVenues(prevState => !prevState)
-    }, 5000)
-  }
-
-  const handleMouseUp = () => {
-    clearTimeout(downTimer)
-  }
+  const toggleTheme = () => { setDarkMode(prev => !prev) }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="title" onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} onTouchStart={handleMouseDown} onTouchEnd={handleMouseUp} onContextMenu={event => event.preventDefault()}>
-          Pispalan Tapahtumat
-        </h1>
-        <Switch
-          className="switch"
-          checked={isSwitchOn}
-          onClick={onSwitchChange}
-          title="Avaa/sulje kaikki"
-          color="default"
-          inputProps={{ 'aria-label': 'primary checkbox' }}
-        />
-        <Menu />
-      </header>
+    <div className={`App ${isDarkMode ? 'theme-dark' : 'theme-light'}`}>
+      <Header
+          isSwitchOn={isSwitchOn}
+          onSwitchChange={onSwitchChange}
+          setShowOnlyPispalaVenues={setShowOnlyPispalaVenues}
+          toggleTheme={toggleTheme}
+          isDarkMode={isDarkMode}
+      >
+        Pispalan Tapahtumat
+      </ Header>
       {
         errorMsg !== null
           ? (<div className="error-loader">{errorMsg.toString()}</div>)

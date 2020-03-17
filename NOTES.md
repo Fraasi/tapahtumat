@@ -15,6 +15,10 @@ A themed splash screen ensures a high-quality experience when users launch your 
 Does not provide a valid apple-touch-icon
 For ideal appearance on iOS when users add to the home screen, define an apple-touch-icon. It must point to a non-transparent 192px (or 180px) square PNG
 
+--
+StitchRequestError: (TRANSPORT_ERROR): the request transport encountered an error communicating with Stitch: Network request failed
+
+=== nettiyhteys ei toiminut
 
 
 

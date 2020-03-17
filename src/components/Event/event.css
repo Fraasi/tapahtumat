@@ -12,22 +12,21 @@
 
 .collapsible-header {
   font-weight: 600;
-} 
+}
 
 .secondary-header {
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--theme-sub-header-color);
 }
 
 .sub-header {
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.6);
+  color: var(--theme-sub-header-color);
 }
 
 .collapsible-body {
   padding: 5px 20px 10px 20px;
   white-space: pre-wrap;
   font-family: monospace;
-  background-color: #fff;
 }
 
 table {
@@ -47,4 +46,17 @@ td:nth-child(1) {
 }
 td:nth-child(2) {
   width: 35px;
+}
+
+.MuiExpansionPanelSummary-expandIcon.MuiIconButton-edgeEnd {
+  color: var(--theme-sub-header-color);
+}
+
+div.MuiPaper-root {
+  color: var(--theme-event-font-color);
+  background-color: var(--theme-event-bg-color);
+}
+div.MuiExpansionPanel-root:before {
+  opacity: 1;
+  background-color: var(--theme-event-before-color);
 }

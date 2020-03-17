@@ -3,6 +3,24 @@
   --primary-color-hover: #1b7068;
 }
 
+.theme-dark {
+  --theme-body-bg-color: darkgrey;
+  --theme-event-font-color: rgba(233, 233, 233, 1);
+  --theme-event-bg-color: rgb(44, 44, 44);
+  --theme-sub-header-color: rgba(255, 255, 255, 0.6);
+  --theme-link-color: #1d7d74;
+  --theme-event-before-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-light {
+  --theme-body-bg-color: lightgrey;
+  --theme-event-font-color: rgb(40, 40, 40);
+  --theme-event-bg-color: rgb(222, 222, 222);
+  --theme-sub-header-color: rgba(0, 0, 0, 0.6);
+  --theme-link-color: rgb(0, 0, 238);
+  --theme-event-before-color: rgba(0, 0, 0, 0.2);
+}
+
 body {
   margin: 0;
   font-family: "Segoe UI", "Roboto", "Oxygen",
@@ -15,7 +33,7 @@ body {
   background-size: 100% 100%;
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
-  background-color: lightgrey;
+  background-color: rgb(121, 115, 104);
   padding-right: 0px !important;
 }
 
@@ -35,4 +53,8 @@ body::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, .3);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+a, a:visited {
+  color: var(--theme-link-color)
 }
