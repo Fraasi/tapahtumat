@@ -6,10 +6,11 @@
 
 
 /* MuiPaper-root MuiPaper-elevation16 MuiDrawer-paper MuiDrawer-paperAnchorLeft */
-div.MuiPaper-root.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
+/* div.MuiPaper-root.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft */
+/* .drawer-classes {
   color: var(--theme-event-font-color);
   background-color: var(--theme-event-bg-color);
-}
+} */
 
 #burger-container {
   z-index: 2000;

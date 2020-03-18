@@ -52,11 +52,12 @@ td:nth-child(2) {
   color: var(--theme-sub-header-color);
 }
 
-div.MuiPaper-root {
+div.MuiPaper-root.MuiExpansionPanel-root {
   color: var(--theme-event-font-color);
   background-color: var(--theme-event-bg-color);
 }
-div.MuiExpansionPanel-root:before {
+
+div.MuiPaper-root.MuiExpansionPanel-root:before {
   opacity: 1;
   background-color: var(--theme-event-before-color);
 }

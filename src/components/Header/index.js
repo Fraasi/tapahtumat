@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Switch from '@material-ui/core/Switch'
 import IconButton from '@material-ui/core/IconButton'
 import MoonIcon from '@material-ui/icons/Brightness4Outlined'
@@ -43,7 +43,7 @@ function Header({ onSwitchChange, isSwitchOn, setShowOnlyPispalaVenues, children
           onClick={toggleTheme}
         >
           {
-            isDarkMode ? <MoonIcon /> : <SunIcon />
+            isDarkMode ? <SunIcon /> : <MoonIcon />
           }
         </IconButton>
 
@@ -55,7 +55,7 @@ function Header({ onSwitchChange, isSwitchOn, setShowOnlyPispalaVenues, children
           color="default"
           inputProps={{ 'aria-label': 'primary checkbox' }}
         />
-        <Menu />
+        <Menu isDarkMode={isDarkMode}/>
       </header>
     </div>
   )

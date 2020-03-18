@@ -10,6 +10,18 @@ const theme = createMuiTheme({
   custom: {
     primary: '#1d7d74',
     onhover: '#1b7068'
+  },
+  themeDark: {
+    eventFontColor: 'rgb(233, 233, 233)',
+    eventBgColor: 'rgb(44, 44, 44)',
+    subHeaderColor: 'rgba(255, 255, 255, 0.6)',
+    linkColor: '#1d7d74',
+  },
+  themeLight: {
+    eventFontColor: 'rgb(40, 40, 40)',
+    eventBgColor: 'rgb(233, 233, 233)',
+    subHeaderColor: 'rgba(0, 0, 0, 0.6)',
+    linkColor: 'rgb(0, 0, 238)',
   }
 })
 

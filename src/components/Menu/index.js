@@ -7,22 +7,42 @@ import Sponsors from '../Sponsors'
 import pkgJson from '../../../package.json'
 import './menu.css'
 
+// drawer is 'out' of #app, css vars dont work, darkmode with material-ui
 const useStyles = makeStyles(theme => ({
+  darkOrLightMode: ({ isDarkMode }) => {
+    const css = isDarkMode ? theme.themeDark : theme.themeLight
+    return {
+      '& .MuiPaper-root': {
+        backgroundColor: css.eventBgColor,
+        color: css.eventFontColor,
+        '& a': {
+          color: css.linkColor
+        },
+        '& span.version': {
+          color: css.subHeaderColor
+        },
+      }
+    }
+  },
   button: {
     width: '50%',
     margin: '5px 25%',
     background: theme.custom.primary,
-    color: "white",
-    "&:hover": {
+    '&:hover': {
       background: theme.custom.onhover,
+    },
+    '& span.MuiButton-label': {
+      color: 'white'
     }
   },
 }))
 
-const Menu = () => {
-  const classes = useStyles()
+const Menu = (props) => {
+
+  const classes = useStyles(props)
   const [isNavOpen, setNav] = useState(false)
   const [isMapOpen, setMap] = useState(false)
+
   const toggleDrawer = () => {
     setNav(prev => !prev)
     if (process.env.NODE_ENV === "production" && !isNavOpen) {
@@ -47,7 +67,11 @@ const Menu = () => {
         </div>
       </div>
       <div className="drawer-container">
-        <Drawer open={isNavOpen} onClose={() => toggleDrawer(false)}>
+        <Drawer
+          open={isNavOpen}
+          onClose={() => toggleDrawer(false)}
+          className={classes.darkOrLightMode}
+        >
           <div className="menu-content">
             <h3>
               Pispalan tapahtumat&nbsp;
@@ -80,7 +104,7 @@ const Menu = () => {
           </div>
 
         </Drawer>
-        <Map isMapOpen={isMapOpen} setMap={setMap}/>
+        <Map isMapOpen={isMapOpen} setMap={setMap} />
       </div>
 
     </>

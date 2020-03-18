@@ -15,7 +15,7 @@
 .theme-light {
   --theme-body-bg-color: lightgrey;
   --theme-event-font-color: rgb(40, 40, 40);
-  --theme-event-bg-color: rgb(222, 222, 222);
+  --theme-event-bg-color: rgb(233, 233, 233);
   --theme-sub-header-color: rgba(0, 0, 0, 0.6);
   --theme-link-color: rgb(0, 0, 238);
   --theme-event-before-color: rgba(0, 0, 0, 0.2);
