@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Header from './components/Header'
 import Event from './components/Event'
+import vuosittaiset from './assets/vuosittaiset-tapahtumat.js'
 import './App.css'
 
 import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
@@ -20,7 +21,6 @@ function App() {
   useEffect(() => {
     const localDarkMode = localStorage.getItem('dark_mode')
     const preferDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
-
     if (localDarkMode === 'false' || (localDarkMode === null && preferDarkMode === false)) {
       setDarkMode(false)
       localStorage.setItem('dark_mode', 'false')
@@ -33,17 +33,16 @@ function App() {
       .then(user => {
         return db.collection('pispala').find({}, { data: 1, _id: 0 }).asArray()
       }).then(docs => {
-        const { events_data, map_data } = docs[0].data
-        // sort & move hietis last
+        const { events_data, map_data, data_updated } = docs[0].data
+        // add vuosittaiset tapahtumat & sort + move hietis last
+        events_data.push(vuosittaiset)
         const hietisIndex = events_data.findIndex(el => el.name === 'hiedanranta')
         const hietis = events_data.splice(hietisIndex, 1)[0]
         const sortedEvents = events_data.sort((first, second) => first.name < second.name ? -1 : 1)
         sortedEvents.push(hietis)
-        if (process.env.NODE_ENV !== "production") console.log('Events:', sortedEvents)
+        if (process.env.NODE_ENV !== "production") console.log('Events:', new Date(data_updated), sortedEvents)
         setEvents(() => sortedEvents)
-        // only way to pass data to LMap, 'cos of the way
-        // leaflet works, no props no context :(
-        window.map_data = map_data
+        window.map_data = map_data // only way to pass data to LMap, 'cos of the way leaflet works, no props no context :(
       }).catch(err => {
         console.error('Data fetch error:', err)
         if (err.toString().includes('TRANSPORT_ERROR')) {

@@ -81,17 +81,15 @@ const Event = (props) => {
     .filter(event => {
       const { startTimeStamp, endTimeStamp } = event
       if (endTimeStamp) {
-        const endDate = new Date(endTimeStamp)
-        if ((endDate + DAY_IN_MS) < today) return false
+        if ((endTimeStamp + DAY_IN_MS) < today) return false
       }
-      const startDate = new Date(startTimeStamp)
-      if ((startDate + DAY_IN_MS) < today) return false
+      if ((startTimeStamp + DAY_IN_MS) < today) return false
       return true
     })
     if (name === 'vastavirta') pastEventsFiltered = pastEventsFiltered.slice(0, 10)
 
   const eventRows = pastEventsFiltered.map((event, i) => {
-    const { startTimeStamp, endTimeStamp, event: happening } = event
+    const { startTimeStamp, endTimeStamp, event: happening, link } = event
     const startDate = new Date(startTimeStamp)
     let endDateParsed = ''
     if (endTimeStamp) {
@@ -102,10 +100,12 @@ const Event = (props) => {
     const eventToday = ((startDate.getDate() === todayDay) && (startDate.getMonth() === todayMonth))
     if (eventToday) isThereEventToday = true
     const todayBGColor = eventToday ? 'rgba(39,169,157,0.7)' : ''
-
+    const text = link
+      ? (<a href={link} target="_blank" rel="noopener noreferrer">{happening}</a>)
+      : happening
     return (
       <tr key={i} style={{ backgroundColor: todayBGColor }}>
-        <td>{dateParsed}</td><td>—</td><td>{happening}</td>
+        <td>{dateParsed}</td><td>—</td><td>{text}</td>
       </tr>
     )
   })
@@ -132,6 +132,13 @@ const Event = (props) => {
           <>
             <br />
             <span className="sub-header">Kansankeittiö lauantaisin <a href="https://www.facebook.com/groups/294496307351291/" target="_blank" rel="noopener noreferrer">https://www.facebook.com/groups/294496307351291/</a></span>
+          </>
+        }
+        {
+          name.includes('vuosittaiset') &&
+          <>
+            <br />
+            <span className="sub-header"><strong>Huom:</strong> päivämäärät ei välttämäti ole vielä oikeat tälle vuodelle</span>
           </>
         }
 
