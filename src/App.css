@@ -9,8 +9,6 @@
   max-width: 600px;
   margin: 0 auto;
   background-color: var(--primary-color);
-  -webkit-transition: background-color 0.25s;
-  transition: background-color 0.25s;
 }
 
 .App-header {
@@ -28,6 +26,8 @@
 }
 
 .error-loader {
+  padding: 20px;
   text-align: center;
-  background-color: #fff;
+  color: var(--theme-event-font-color);
+  background-color: var(--theme-event-bg-color);
 }

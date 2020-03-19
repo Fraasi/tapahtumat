@@ -55,6 +55,7 @@ td:nth-child(2) {
 div.MuiPaper-root.MuiExpansionPanel-root {
   color: var(--theme-event-font-color);
   background-color: var(--theme-event-bg-color);
+  transition: background-color .25s;
 }
 
 div.MuiPaper-root.MuiExpansionPanel-root:before {
