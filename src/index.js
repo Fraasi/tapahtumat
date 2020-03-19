@@ -15,7 +15,7 @@ const theme = createMuiTheme({
     eventFontColor: 'rgb(233, 233, 233)',
     eventBgColor: 'rgb(44, 44, 44)',
     subHeaderColor: 'rgba(255, 255, 255, 0.6)',
-    linkColor: '#1d7d74',
+    linkColor: '#29aea0',
   },
   themeLight: {
     eventFontColor: 'rgb(40, 40, 40)',
