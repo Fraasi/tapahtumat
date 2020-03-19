@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Header from './components/Header'
 import Event from './components/Event'
+import Notification from './components/Notification'
 import './App.css'
 
 import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
@@ -99,6 +100,7 @@ function App() {
               }
             </div>)
       }
+      <Notification/>
     </div>
   )
 }

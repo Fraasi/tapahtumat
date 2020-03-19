@@ -24,17 +24,6 @@ const useStyles = makeStyles(theme => ({
       }
     }
   },
-  button: {
-    width: '50%',
-    margin: '5px 25%',
-    background: theme.custom.primary,
-    '&:hover': {
-      background: theme.custom.onhover,
-    },
-    '& span.MuiButton-label': {
-      color: 'white'
-    }
-  },
 }))
 
 const Menu = (props) => {
