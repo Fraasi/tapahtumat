@@ -92,7 +92,7 @@ const Menu = (props) => {
             <Button
               variant="outlined"
               color="inherit"
-              className={classes.button}
+              className="button kartalla"
               onClick={() => {
                 toggleDrawer(false)
                 setMap(true)

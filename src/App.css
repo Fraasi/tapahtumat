@@ -8,7 +8,7 @@
   padding-bottom: 5px;
   max-width: 600px;
   margin: 0 auto;
-  background-color: var(--primary-color);
+  background-color: var(--color-green);
 }
 
 .App-header {
@@ -28,6 +28,6 @@
 .error-loader {
   padding: 20px;
   text-align: center;
-  color: var(--theme-event-font-color);
-  background-color: var(--theme-event-bg-color);
+  color: var(--theme-color-font);
+  background-color: var(--theme-color-bg);
 }

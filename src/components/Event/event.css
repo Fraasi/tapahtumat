@@ -15,12 +15,12 @@
 }
 
 .secondary-header {
-  color: var(--theme-sub-header-color);
+  color: var(--theme-color-font-sub-header);
 }
 
 .sub-header {
   font-size: 0.75rem;
-  color: var(--theme-sub-header-color);
+  color: var(--theme-color-font-sub-header);
 }
 
 .collapsible-body {
@@ -49,16 +49,16 @@ td:nth-child(2) {
 }
 
 .MuiExpansionPanelSummary-expandIcon.MuiIconButton-edgeEnd {
-  color: var(--theme-sub-header-color);
+  color: var(--theme-color-font-sub-header);
 }
 
 div.MuiPaper-root.MuiExpansionPanel-root {
-  color: var(--theme-event-font-color);
-  background-color: var(--theme-event-bg-color);
+  color: var(--theme-color-font);
+  background-color: var(--theme-color-bg);
   transition: background-color .25s;
 }
 
 div.MuiPaper-root.MuiExpansionPanel-root:before {
   opacity: 1;
-  background-color: var(--theme-event-before-color);
+  background-color: var(--theme-color-event-before);
 }

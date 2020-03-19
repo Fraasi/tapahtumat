@@ -1,24 +1,24 @@
 :root {
-  --primary-color: #1d7d74;
-  --primary-color-hover: #1b7068;
+  --color-green: #1d7d74;
+  --color-green-hover: #1b7068;
+  --button-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  --button-border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .theme-dark {
-  --theme-body-bg-color: darkgrey;
-  --theme-event-font-color: rgba(233, 233, 233, 1);
-  --theme-event-bg-color: rgb(44, 44, 44);
-  --theme-sub-header-color: rgba(255, 255, 255, 0.6);
-  --theme-link-color: #1d7d74;
-  --theme-event-before-color: rgba(255, 255, 255, 0.2);
+  --theme-color-bg: rgb(44, 44, 44);
+  --theme-color-font: rgba(233, 233, 233, 1);
+  --theme-color-font-sub-header: rgba(255, 255, 255, 0.6);
+  --theme-color-link: #228f84;
+  --theme-color-event-before: rgba(255, 255, 255, 0.2);
 }
 
 .theme-light {
-  --theme-body-bg-color: lightgrey;
-  --theme-event-font-color: rgb(40, 40, 40);
-  --theme-event-bg-color: rgb(233, 233, 233);
-  --theme-sub-header-color: rgba(0, 0, 0, 0.6);
-  --theme-link-color: rgb(0, 0, 238);
-  --theme-event-before-color: rgba(0, 0, 0, 0.2);
+  --theme-color-bg: rgb(233, 233, 233);
+  --theme-color-font: rgb(40, 40, 40);
+  --theme-color-font-sub-header: rgba(0, 0, 0, 0.6);
+  --theme-color-link: rgb(0, 0, 238);
+  --theme-color-event-before: rgba(0, 0, 0, 0.2);
 }
 
 body {
@@ -31,7 +31,7 @@ body {
   background-size: 100% 100%;
   overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
-  background-color: rgb(121, 115, 104);
+  background-color: rgb(135, 130, 120);
   padding-right: 0px !important;
 }
 
@@ -55,5 +55,5 @@ body::-webkit-scrollbar-thumb {
 }
 
 a, a:visited {
-  color: var(--theme-link-color)
+  color: var(--theme-color-link)
 }
