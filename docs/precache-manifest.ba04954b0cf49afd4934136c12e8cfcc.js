@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1e59553b72320e6d36c09b177a6d8ad0",
+    "revision": "3000322108a934528b08ac98a6557b01",
     "url": "./index.html"
   },
   {
-    "revision": "2d1085631308e31fd83c",
-    "url": "./static/css/main.6c83a329.chunk.css"
+    "revision": "0b88ef9a87b16ce550d3",
+    "url": "./static/css/main.4991d147.chunk.css"
   },
   {
-    "revision": "49d28faa6752cdbb7349",
-    "url": "./static/js/2.230a091e.chunk.js"
+    "revision": "98e142e8ca10537df437",
+    "url": "./static/js/2.f41256a4.chunk.js"
   },
   {
-    "revision": "2d1085631308e31fd83c",
-    "url": "./static/js/main.a4990245.chunk.js"
+    "revision": "0b88ef9a87b16ce550d3",
+    "url": "./static/js/main.5816bc1d.chunk.js"
   },
   {
     "revision": "d60136cca486dfcd9e1e",
@@ -26,5 +26,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "619125a1371c29fb88468786f8eb4d18",
     "url": "./static/media/IMG_4189-cr-800.619125a1.JPG"
+  },
+  {
+    "revision": "c8b198fe03f16d953e402883f36145e2",
+    "url": "./static/media/nino-pispala-800.c8b198fe.jpg"
   }
 ]);
