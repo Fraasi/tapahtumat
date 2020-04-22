@@ -11,6 +11,7 @@
   --theme-color-font-sub-header: rgba(255, 255, 255, 0.6);
   --theme-color-link: #29aea0;
   --theme-color-event-before: rgba(255, 255, 255, 0.2);
+  --theme-background-image: url('./assets/nino-pispala-800.jpg');
 }
 
 .theme-light {
@@ -19,6 +20,7 @@
   --theme-color-font-sub-header: rgba(0, 0, 0, 0.6);
   --theme-color-link: rgb(0, 0, 238);
   --theme-color-event-before: rgba(0, 0, 0, 0.2);
+  --theme-background-image: url('./assets/IMG_4189-cr-800.JPG');
 }
 
 body {
