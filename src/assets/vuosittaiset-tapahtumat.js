@@ -4,13 +4,13 @@ export default {
   "url": "http://pispala.fi/uuttanyt/",
   "events": [
     {
-      "event": "Pispala Folk",
+      "event": "Pispala Folk (peruttu?)",
       "startTimeStamp": new Date(2020, 7, 2).getTime(),
       "endTimeStamp": null,
       "link": "http://pispala.fi/yhdistykset/musiikkiyhdistys/folk.html"
     },
     {
-      "event": "Pispalan karnevaalit",
+      "event": "Pispalan karnevaalit (peruttu)",
       "startTimeStamp": new Date(2020, 5, 1).getTime(),
       "endTimeStamp": null,
       "link": "http://pispala.fi/karnevaalit/"
