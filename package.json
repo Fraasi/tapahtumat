@@ -1,7 +1,7 @@
 {
   "name": "tapahtumat",
   "author": "fraasi <fraasi.gh@gmail.com> (https://fraasi.github.io)",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "private": true,
   "homepage": ".",
   "scripts": {
