@@ -26,7 +26,7 @@ const Event = (props) => {
   const [isOpen, setOpen] = useState(false)
   useEffect(() => {
     setOpen(() => props.isSwitchOn)
-    }, [props.isSwitchOn]
+  }, [props.isSwitchOn]
   )
   const classes = useStyles()
 
@@ -80,13 +80,11 @@ const Event = (props) => {
     .sort((ev1, ev2) => ev1.startTimeStamp < ev2.startTimeStamp ? -1 : 1)
     .filter(event => {
       const { startTimeStamp, endTimeStamp } = event
-      if (endTimeStamp) {
-        if ((endTimeStamp + DAY_IN_MS) < today) return false
-      }
-      if ((startTimeStamp + DAY_IN_MS) < today) return false
+      if (endTimeStamp && (endTimeStamp + DAY_IN_MS) < today) return false
+      if (!endTimeStamp && (startTimeStamp + DAY_IN_MS) < today) return false
       return true
     })
-    if (name === 'vastavirta') pastEventsFiltered = pastEventsFiltered.slice(0, 10)
+  if (name === 'vastavirta') pastEventsFiltered = pastEventsFiltered.slice(0, 10)
 
   const eventRows = pastEventsFiltered.map((event, i) => {
     const { startTimeStamp, endTimeStamp, event: happening, link } = event
