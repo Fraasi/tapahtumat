@@ -9,6 +9,7 @@
     "build": "react-scripts build",
     "postbuild": "rm -rf docs && cp -r build/ docs && rm -rf build",
     "test": "react-scripts test",
+    "version": "npm run build && git add -A docs",
     "analyze": "source-map-explorer 'docs/static/js/*.js'"
   },
   "browserslist": {
