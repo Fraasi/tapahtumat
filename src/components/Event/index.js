@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import ExpansionPanel from '@material-ui/core/ExpansionPanel'
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
+import Accordion from '@material-ui/core/Accordion'
+import AccordionDetails from '@material-ui/core/AccordionDetails'
+import AccordionSummary from '@material-ui/core/AccordionSummary'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 import './event.css'
 
@@ -43,8 +43,8 @@ const Event = (props) => {
 
   if (error_msg) {
     return (
-      <ExpansionPanel className={classes.root} expanded={isOpen}>
-        <ExpansionPanelSummary
+      <Accordion className={classes.root} expanded={isOpen}>
+        <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1c-content"
           id="panel1c-header"
@@ -56,8 +56,8 @@ const Event = (props) => {
               ({error_title} 🐛)
             </span>
           </div>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails className="collapsible-body">
+        </AccordionSummary>
+        <AccordionDetails className="collapsible-body">
           <span className="sub-header">Käyhän nettisivuilla&nbsp;<a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span><br /><br />
           <ul>
             {
@@ -66,8 +66,8 @@ const Event = (props) => {
               </li>
             }
           </ul>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+        </AccordionDetails>
+      </Accordion>
     )
   }
 
@@ -109,8 +109,8 @@ const Event = (props) => {
   })
 
   return (
-    <ExpansionPanel className={classes.root} expanded={isOpen}>
-      <ExpansionPanelSummary
+    <Accordion className={classes.root} expanded={isOpen}>
+      <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1c-content"
         id="panel1c-header"
@@ -122,8 +122,8 @@ const Event = (props) => {
             &nbsp;{` (${pastEventsFiltered.length}) ${isThereEventToday ? '!' : ''}`}
           </span>
         </div>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails className="collapsible-body">
+      </AccordionSummary>
+      <AccordionDetails className="collapsible-body">
         <span className="sub-header">Aukioloajat & tarkemmat tiedot <a href={url} target="_blank" rel="noopener noreferrer">{url}</a></span>
         {
           name === 'hirvitalo' &&
@@ -148,8 +148,8 @@ const Event = (props) => {
             }
           </tbody>
         </table>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   )
 }
 

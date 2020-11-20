@@ -1,5 +1,5 @@
 
-export default {
+const vuosittaiset = {
   "name": "vuosittaiset_tapahtumat (työn alla)",
   "url": "http://pispala.fi/uuttanyt/",
   "events": [
@@ -35,3 +35,5 @@ export default {
     },
   ]
 }
+
+export default vuosittaiset

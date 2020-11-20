@@ -1,13 +1,20 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Modal from '@material-ui/core/Modal'
 import Button from '@material-ui/core/Button'
 import './map.css'
 
-
-const LMap = () => (
-  <LeafletMap center={[61.50238, 23.71477]} zoom={13}>
+// https://material-ui.com/guides/migration-v3/#modal
+// https://material-ui.com/guides/composition/#caveat-with-refs
+const LMap = React.forwardRef((props, ref) => (
+  <MapContainer center={[61.50238, 23.71477]} zoom={13} class="map-container">
+    <Button
+      ref={ref}
+      className="map-close-button"
+      onClick={() => props.setMap(false)}
+      variant="outlined"
+      color="inherit"
+    >X</Button>
     <TileLayer
       attribution='&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors'
       url='https://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -22,10 +29,11 @@ const LMap = () => (
         </Marker>
       ))
     }
-  </LeafletMap>
-)
+  </MapContainer>
+))
 
 const Map = ({ isMapOpen, setMap }) => {
+  const ref = React.createRef()
   const onModalOpen = () => {
     if (process.env.NODE_ENV === "production") {
       window.gtag('event', 'map_opened', {
@@ -33,10 +41,6 @@ const Map = ({ isMapOpen, setMap }) => {
         'event_label': 'map',
       })
     }
-    const mapDiv = document.querySelector('.map')
-    const button = document.querySelector('.map-close-button')
-    ReactDOM.render(<LMap />, mapDiv)
-    mapDiv.appendChild(button)
   }
 
   return (
@@ -50,17 +54,10 @@ const Map = ({ isMapOpen, setMap }) => {
       onClose={() => setMap(false)}
       onBackdropClick={() => setMap(false)}
     >
-      <div className="modal-content">
-        <Button
-          className="map-close-button"
-          onClick={() => setMap(false)}
-          variant="outlined"
-          color="inherit"
-        >X</Button>
-        <div className="map"></div>
-      </div>
+      <LMap ref={ref} setMap={setMap} />
     </Modal>
   )
 }
+
 
 export default Map

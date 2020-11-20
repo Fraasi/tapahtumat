@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import Header from './components/Header'
 import Event from './components/Event'
-import vuosittaiset from './assets/vuosittaiset-tapahtumat.js'
+// import vuosittaiset from './assets/vuosittaiset-tapahtumat.js'
 import './App.css'
 
 import { Stitch, RemoteMongoClient, AnonymousCredential } from 'mongodb-stitch-browser-sdk'
@@ -35,7 +35,7 @@ function App() {
       }).then(docs => {
         const { events_data, map_data, data_updated } = docs[0].data
         // add vuosittaiset tapahtumat & sort + move hietis last
-        events_data.push(vuosittaiset)
+        // events_data.push(vuosittaiset)
         const hietisIndex = events_data.findIndex(el => el.name === 'hiedanranta')
         const hietis = events_data.splice(hietisIndex, 1)[0]
         const sortedEvents = events_data.sort((first, second) => first.name < second.name ? -1 : 1)
@@ -59,7 +59,7 @@ function App() {
 
   const toggleTheme = () => {
     setDarkMode(prev =>  {
-    localStorage.setItem('dark_mode', !prev)
+      localStorage.setItem('dark_mode', !prev)
       return !prev
     })
   }
