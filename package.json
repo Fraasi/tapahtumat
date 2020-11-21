@@ -1,7 +1,7 @@
 {
   "name": "tapahtumat",
   "author": "fraasi <fraasi.gh@gmail.com> (https://fraasi.github.io)",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "private": true,
   "homepage": ".",
   "scripts": {
@@ -32,7 +32,23 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-leaflet": "3.0.2",
-    "react-scripts": "4.0.0"
+    "react-scripts": "4.0.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "web-vitals": "^0.2.4",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "devDependencies": {
     "source-map-explorer": "^2.5.0"
