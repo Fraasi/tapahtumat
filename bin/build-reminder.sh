@@ -19,7 +19,7 @@
 # Allows us to read user input below, assigns stdin to keyboard
 exec < /dev/tty
 
-read -pr "Did you remember to run build script? (y/n)" ANSWER
+read -p "Did you remember to run build script? (y/n)" ANSWER
 case ${ANSWER:0:1} in
     y|Y )
         echo "Pushing to remote $1 at $2"; exit 0
