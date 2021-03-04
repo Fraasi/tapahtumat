@@ -46,3 +46,17 @@ icons
   "scope": "/maps/",
   "theme_color": "#3367D6"
 }
+
+
+<!-- Old adds 
+
+  {
+     name: 'Suutari Knallin Saluuna',
+     img: knalli_logo,
+     url: 'https://FB.com/knallinsaluuna',
+     url2: 'https://Instagram.com/knallin_saluuna',
+     until: new Date(2020, 11, 30).getTime()
+  }
+
+
+ -->

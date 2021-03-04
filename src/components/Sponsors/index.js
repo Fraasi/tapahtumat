@@ -1,24 +1,14 @@
 import React from 'react'
 import './sponsors.css'
-import knalli_logo from './images/Knallin_Saluuna_logo.jpg'
+import cireco_logo from './images/Cireco_logo.png'
 
-// const WEEK_IN_MILLISECS = 604800
-// const MONTH_IN_MILISECS = 2629746000
-// calculate 3 months from new date
-// new Date(2019, 11, 1).getTime() + (MONTH_IN_MILISECS * 3)
 
 const sponsors = [
   {
-    name: 'sadfg',
-    url: 'www.example.com',
-    until: (Date.now() - 173800)
-  },
-  {
-    name: 'Suutari Knallin Saluuna',
-    img: knalli_logo,
-    url: 'https://FB.com/knallinsaluuna',
-    url2: 'https://Instagram.com/knallin_saluuna',
-    until: new Date(2020, 11, 30).getTime()
+    name: 'Cireco Finland Oy',
+    img: cireco_logo,
+    url: 'https://cireco.fi',
+    until: new Date(2021, 4, 1).getTime()
   }
 ]
 
