@@ -8,7 +8,7 @@ const sponsors = [
     name: 'Cireco Finland Oy',
     img: cireco_logo,
     url: 'https://cireco.fi',
-    until: new Date(2021, 4, 1).getTime()
+    until: new Date(2021, 5, 1).getTime()
   }
 ]
 
