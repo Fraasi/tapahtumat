@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import Alert from '@material-ui/lab/Alert'
+import Collapse from '@material-ui/core/Collapse'
 import Header from './components/Header'
 import Event from './components/Event'
 // import vuosittaiset from './assets/vuosittaiset-tapahtumat.js'
@@ -13,6 +15,7 @@ const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').d
 function App() {
 
   const [events, setEvents] = useState(null)
+  const [ updateDate, setUpdateDate ] = useState(null)
   const [errorMsg, setErrorMsg] = useState(null)
   const [isSwitchOn, setSwitch] = useState(false)
   const [isDarkMode, setDarkMode] = useState(false)
@@ -42,6 +45,7 @@ function App() {
         sortedEvents.push(hietis)
         if (process.env.NODE_ENV !== "production") console.log('Events:', new Date(data_updated), sortedEvents)
         setEvents(() => sortedEvents)
+        setUpdateDate(new Date(data_updated).toLocaleString('FI-fi'))
         window.map_data = map_data // only way to pass data to LMap, 'cos of the way leaflet works, no props no context :(
       }).catch(err => {
         console.error('Data fetch error:', err)
@@ -58,7 +62,7 @@ function App() {
   }
 
   const toggleTheme = () => {
-    setDarkMode(prev =>  {
+    setDarkMode(prev => {
       localStorage.setItem('dark_mode', !prev)
       return !prev
     })
@@ -75,6 +79,18 @@ function App() {
       >
         Pispalan Tapahtumat
       </ Header>
+      {
+        !showOnlyPispalaVenues &&
+        <Collapse in={!showOnlyPispalaVenues}>
+          <Alert
+            severity="info"
+            variant="filled"
+            onClose={() => { setShowOnlyPispalaVenues(true) }}
+          >
+            updateDate:{ updateDate }
+        </Alert>
+        </Collapse>
+      }
       {
         errorMsg !== null
           ? (<div className="error-loader">{errorMsg}</div>)
