@@ -39,7 +39,7 @@ function App() {
         const { events_data, map_data, data_updated } = docs[0].data
         // add vuosittaiset tapahtumat & sort + move hietis last
         // events_data.push(vuosittaiset)
-        const hietisIndex = events_data.findIndex(el => el.name === 'hiedanranta')
+        const hietisIndex = events_data.findIndex(el => el.name === 'Hiedanranta')
         const hietis = events_data.splice(hietisIndex, 1)[0]
         const sortedEvents = events_data.sort((first, second) => first.name < second.name ? -1 : 1)
         sortedEvents.push(hietis)

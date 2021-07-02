@@ -35,7 +35,7 @@ const Event = (props) => {
   const { name, url, events, error_msg, error_title } = props.data
 
   if (props.showOnlyPispalaVenues) {
-    const nonPispala = ['dogs_home', 'maanalainen', 'visit_tampere', 'huurupiilo']
+    const nonPispala = ['Dogs home', 'Maanalainen', 'Visit Tampere', 'Huurupiilo']
     if (nonPispala.includes(name)) return null
   }
 

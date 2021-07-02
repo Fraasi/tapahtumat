@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "./static/css/main.e7366880.chunk.css",
-    "main.js": "./static/js/main.ded199da.chunk.js",
-    "main.js.map": "./static/js/main.ded199da.chunk.js.map",
+    "main.css": "./static/css/main.409bb78e.chunk.css",
+    "main.js": "./static/js/main.4a11afd8.chunk.js",
+    "main.js.map": "./static/js/main.4a11afd8.chunk.js.map",
     "runtime-main.js": "./static/js/runtime-main.0c533b67.js",
     "runtime-main.js.map": "./static/js/runtime-main.0c533b67.js.map",
-    "static/js/2.b3ea86d9.chunk.js": "./static/js/2.b3ea86d9.chunk.js",
-    "static/js/2.b3ea86d9.chunk.js.map": "./static/js/2.b3ea86d9.chunk.js.map",
+    "static/js/2.ac859623.chunk.js": "./static/js/2.ac859623.chunk.js",
+    "static/js/2.ac859623.chunk.js.map": "./static/js/2.ac859623.chunk.js.map",
     "static/js/3.bcf3f4a1.chunk.js": "./static/js/3.bcf3f4a1.chunk.js",
     "static/js/3.bcf3f4a1.chunk.js.map": "./static/js/3.bcf3f4a1.chunk.js.map",
     "index.html": "./index.html",
     "service-worker.js": "./service-worker.js",
     "service-worker.js.map": "./service-worker.js.map",
-    "static/css/main.e7366880.chunk.css.map": "./static/css/main.e7366880.chunk.css.map",
-    "static/js/2.b3ea86d9.chunk.js.LICENSE.txt": "./static/js/2.b3ea86d9.chunk.js.LICENSE.txt",
+    "static/css/main.409bb78e.chunk.css.map": "./static/css/main.409bb78e.chunk.css.map",
+    "static/js/2.ac859623.chunk.js.LICENSE.txt": "./static/js/2.ac859623.chunk.js.LICENSE.txt",
     "static/media/App.css": "./static/media/AnnieUseYourTelescope-Regular.64ec8fed.ttf",
     "static/media/index.css": "./static/media/nino-pispala-600.c829c318.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.0c533b67.js",
-    "static/js/2.b3ea86d9.chunk.js",
-    "static/css/main.e7366880.chunk.css",
-    "static/js/main.ded199da.chunk.js"
+    "static/js/2.ac859623.chunk.js",
+    "static/css/main.409bb78e.chunk.css",
+    "static/js/main.4a11afd8.chunk.js"
   ]
 }
